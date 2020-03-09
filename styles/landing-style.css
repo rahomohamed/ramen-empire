@@ -58,7 +58,7 @@ li {
 }
 
 .headerTop {
-  background-color: darkcyan;
+  background-color: #2d2d2d;
   padding: 20px 0;
 }
 
@@ -81,7 +81,7 @@ ul.headerNav li, footer {
 }
 
 .logo, ul.headerNav li a {
-	color: black;
+	color: white;
 }
 
 .logo, .copyright {
@@ -98,7 +98,7 @@ ul.headerNav li a {
 }
 
 ul.headerNav li a:hover {
-  color: cadetblue;
+  color: #4183c4
 }
 
 .menu {
@@ -207,5 +207,5 @@ footer, .social a {
 }
 
 .social a:hover {
-	color: cadetblue;
+	color: #4183c4
 }
