@@ -21,7 +21,7 @@
   <!-- External JS -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <!-- JS links -->
-  <!-- <script type="text/javascript" src="./scripts/calculator.js"></script> -->
+  <script type="text/javascript" src="./scripts/calculator.js"></script>
 
 </head>
 <body>
@@ -97,20 +97,12 @@
     </section>
   </main>
 
-      <!-- <span id="counter">99</span>
-      <button id="add">ADD</button> -->
-
-
-
 
   <form class="calculator ui form" method="POST" action="payment.html">
     <h4 class="ui dividing header">Order Summary</h4>
-
-
-
-
-
-
+    <span id="counter">0</span>
+    <button class="add ui blue button" tabindex="0">Add</button>
+    <button class="remove ui red button" tabindex="0">Remove</button>
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
   <footer>
@@ -124,15 +116,6 @@
       </div>
     </div>
   </footer>
-
-<script>
-  $("#add").click(function () {
-
-    $("#counter").text("hello world");
-  });
-</script>
-
-
 </body>
 </html>
 <!-- make inputs "required", i.e. no empty text boxes -->
