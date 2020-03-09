@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>FCR - MENU</title>
@@ -20,11 +19,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-
-
 <body>
-
-
   <div class="headerTop">
     <div class="wrapper">
       <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
@@ -38,60 +33,51 @@
       </nav>
     </div>
   </div>
-
-
   <main>
     <section class="menu">
       <h1>MENU</h1>
       <div class="wrapper">
-
         <div class="menu-item">
-
-        <div class="menu-selection">
+          <div class="menu-selection">
+              <div class="item-image">
+                <img class="ui medium circular image" src="../assets/piece.jpeg">
+              </div>
+              <!-- need to add method="POST" action="???" -->
+              <form class="quantity ui form">
+                <h4 class="ui dividing header">$12.99</h4>
+                <div class="add ui blue button" tabindex="0">Add</div>
+                <div class="remove ui red button" tabindex="0">Remove</div>
+              </form>
+          </div>
+          <div class="item-description">
+            <h3>BUCKET OF FRIED CHICKEN</h3>
+            <h4>12 pieces of original fried chicken</h4>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-selection">
             <div class="item-image">
-              <img class="ui medium circular image" src="../assets/piece.jpeg">
+              <img class="ui medium circular image" src="../assets/nuggets.jpeg">
             </div>
-            <div class="quantity">
-              <h3>$12.99</h3>
-              <button class="add ui blue button">ADD</button>
-              <button class="remove ui red button">REMOVE</button>
-            </div>
-        </div>
-
-        <div class="item-description">
-          <h3>BUCKET OF FRIED CHICKEN</h3>
-          <h4>12 pieces of original fried chicken</h4>
-        </div>
-
-      </div>
-
-
-
-
-
-        <div id="calculator">
-          <form method="POST" action="payment.html">
-            <h2>Food Order</h2>
-            <button class="checkout ui green button">CHECKOUT</button>
-          </form>
+            <!-- need to add method="POST" action="???" -->
+            <form class="quantity ui form">
+              <h4 class="ui dividing header">$3.99</h4>
+              <div class="add ui blue button" tabindex="0">Add</div>
+              <div class="remove ui red button" tabindex="0">Remove</div>
+            </form>
+          </div>
+          <div class="item-description">
+            <h3>2 PIECE COMBO</h3>
+            <h4>2 pieces of original fried chicken and individual fries</h4>
+          </div>
         </div>
       </div>
-
-
-
     </section>
   </main>
-
-
-
-
-
-
-
-
-
-
-
+  <form class="calculator ui form" method="POST" action="payment.html">
+    <h4 class="ui dividing header">Order Summary</h4>
+    <div class="checkout ui green button" tabindex="0">Submit Order</div>
+  </form>
   <footer>
     <div class="wrapper">
       <p class="copyright">&copy; 2020 FRIED CHICKEN RESTAURANT</p>
@@ -104,8 +90,5 @@
     </div>
   </footer>
 </body>
-
 </html>
-
-
 <!-- make inputs "required", i.e. no empty text boxes -->
