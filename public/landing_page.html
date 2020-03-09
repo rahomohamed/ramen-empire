@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FCR - MENU</title>
+  <!-- Disable viewport zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Links and scripts for Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles/landing-style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- External JS -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <!-- JS links -->
+  <script type="text/javascript" src="./scripts/calculator.js"></script>
+
+</head>
+<body>
+  <div class="headerTop">
+    <div class="wrapper">
+      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+      <nav>
+        <ul class="headerNav">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <main>
+    <section class="menu">
+      <h1>MENU</h1>
+      <div class="wrapper">
+
+
+        <div class="menu-item">
+          <div class="menu-selection">
+              <div class="item-image">
+                <img class="ui medium circular image" src="../images/piece.jpeg">
+              </div>
+              <!-- need to add method="POST" action="???" -->
+              <form class="quantity ui form">
+                <h4 class="ui dividing header">$12.99</h4>
+                <button class="add ui blue button" tabindex="0">Add</button>
+                <!-- <button class="remove ui red button" tabindex="0">Remove</button> -->
+              </form>
+            <h3>BUCKET OF FRIED CHICKEN</h3>
+            <h4>12 pieces of original fried chicken</h4>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="menu-item">
+          <div class="menu-selection">
+            <div class="item-image">
+              <img class="ui medium circular image" src="../images/nuggets.jpeg">
+            </div> -->
+            <!-- need to add method="POST" action="???" -->
+            <!-- <form class="quantity ui form">
+              <h4 class="ui dividing header">$3.99</h4>
+              <button class="add ui blue button" tabindex="0">Add</button>
+              <button class="remove ui red button" tabindex="0">Remove</button>
+            </form>
+          </div>
+          <div class="item-description">
+            <h3>2 PIECE COMBO</h3>
+            <h4>2 pieces of original fried chicken and individual fries</h4>
+          </div>
+        </div> -->
+      </div>
+
+
+
+
+
+    </section>
+  </main>
+
+
+  <form class="calculator ui form" method="POST" action="payment.html">
+    <h4 class="ui dividing header">Order Summary</h4>
+    <button class="add ui blue button" tabindex="0">+</button>
+    <span id="counter">0</span>
+    <button class="remove ui red button" tabindex="0">-</button>
+    <button class="checkout ui green button" tabindex="0">Submit Order</button>
+  </form>
+  <footer>
+    <div class="wrapper">
+      <p class="copyright">&copy; 2020 FRIED CHICKEN RESTAURANT</p>
+      <div class="social">
+        <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.plus.google.com"><i class="fab fa-google-plus-g"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+<!-- make inputs "required", i.e. no empty text boxes -->
