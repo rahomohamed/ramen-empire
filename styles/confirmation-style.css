@@ -69,7 +69,7 @@ li {
 }
 
 .payment-details, #confirmed, #info {
-	background-image: url(../assets/fried-chicken.jpg);
+	background-image: url(../images/fried-chicken.jpg);
 	background-size: cover;
 }
 
