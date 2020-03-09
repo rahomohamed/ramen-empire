@@ -4,144 +4,6 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0; }
 
-
-.calculator {
-	width: 400px;
-	text-align: center;
-	padding: 5px;
-	margin-bottom: 25px;
-	border: black solid 1px;
-	background-color: white;
-	border-radius: 20px;
-	position: relative;
-}
-
-.order {
-	width: 300px;
-	text-align: center;
-	padding: 5px;
-	margin-bottom: 25px;
-	border: black solid 1px;
-	background-color: white;
-	border-radius: 20px;
-	position: relative;
-}
-
-.firstinfo, .secondinfo {
-	width: 300px;
-	text-align: center;
-	padding: 5px;
-	border: black solid 1px;
-	background-color: white;
-	border-radius: 20px;
-	position: relative;
-	margin-left: 25px;
-}
-
-.firstinfo {
-	margin-bottom: 25px;
-}
-
-#info {
-	padding-top: 25px;
-}
-
-#checkout {
-	position: absolute;
-	left: 0;
-	bottom: 15px;
-}
-
-.related {
-	padding: 35px 0 45px;
-}
-
-.wrapper {
-	margin: 0 auto;
-	max-width: 1280px;
-	width: 80%;
-}
-.wrapper2 {
-	margin: 0 auto;
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
-}
-
-.wrapperConfirm {
-	padding-top: 25px;
-	margin: 0 auto;
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
-}
-
-.paybox {
-	display: flex;
-	flex-direction: column;
-	/* width: 300px; */
-	text-align: center;
-	padding: 5px;
-	margin-bottom: 25px;
-	border: black solid 1px;
-	background-color: white;
-	border-radius: 20px;
-}
-
-
-form {
-	width: 300px;
-	background-color: cornflowerblue;
-	padding: 30px 30px 22px;
-	border-radius: 20px;
-}
-
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-/* /////////////////////////////////////////// */
-
-
-
-
-
-.rant {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.relatedPost {
-			display: flex;
-		flex-direction: row;
-}
-
-.relatedPost .pic a {
-	padding-bottom: 10px;
-}
-
 body {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
@@ -152,7 +14,7 @@ h1 {
 	margin: 0;
 }
 
-h1, h2, h3, ul.headerNav li, .content, .blog, .relatedPost {
+h1, h2, h3, ul.headerNav li {
 	text-align: center;
 }
 
@@ -162,11 +24,8 @@ h3 {
 
 p {
 	line-height: 1.5em;
-	padding: 5px 0;
-}
-
-p, .blog a, .relatedPost a {
-	font-size: 16px;
+  padding: 5px 0;
+  font-size: 16px;
 }
 
 a {
@@ -200,18 +59,19 @@ li {
 }
 
 .headerTop {
-	background-color: darkcyan;
+  background-color: darkcyan;
+  padding: 20px 0;
 }
 
-.related, #confirmed, .alerts {
-	background-image: url(../assets/gravy.jpeg);
+.headerTop .wrapper, footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-details, #confirmed, #info {
+	background-image: url(../assets/fried-chicken.jpg);
 	background-size: cover;
 }
-
-.headerTop, footer {
-	padding: 10px 0;
-}
-
 
 .headerTop .wrapper, ul.headerNav li, footer {
 	align-items: center;
@@ -244,141 +104,48 @@ ul.headerNav li a {
 	font-size: 16px;
 }
 
-ul.headerNav li a:hover {
-	text-shadow: 1px 1px 0 black;
+ul.headerNav li a:hover, .social a:hover {
+	color: cadetblue;
 }
 
-.headerContent {
-	background-image: url(../assets/gravy.jpeg);
-	background-size: cover;
-	height: 100vh;
-	width: 100%;
+.payment-details {
+  padding: 50px 0;
+  height: 100vh;
 }
 
-.content {
-	background-color: rgba(236,236,236,0.94);
-	flex: 0 1 auto;
-	margin: auto;
-	padding: 50px 75px;
-	width: 62.5%;
+.payment-details .wrapper {
+	display: flex;
+	justify-content: space-between;
 }
 
-.content, .about {
-	flex-direction: column;
+form {
+	background-color: cornflowerblue;
+	padding: 25px;
+	border-radius: 25px;
 }
 
-.content p {
-	font-size: 20px;
+.order-summary {
+  height: 100px;
+	width: 300px;
+	text-align: center;
+	border: black solid 1px;
+	background-color: white;
+	border-radius: 20px;
+	position: relative;
 }
 
-.blogAbout, .information {
-	padding: 75px 0;
+footer {
+  padding: 20px 0;
 }
 
-.blogAbout h2 {
-	padding: 25px 0;
+.copyright {
+  margin: 0;
+  padding: 0;
 }
 
-.blog {
-	flex-wrap: wrap;
-	width: calc(66% - 5px);
-}
-
-.blog p, .about p, .relatedPost p {
-	padding: 5px 25px;
-}
-
-.blog p, .about p, .relatedPost p, .information h3 {
-	text-align: left;
-}
-
-.blog a {
-	color: #ed145b;
-}
-
-.blog a:hover, .relatedPost a:hover {
-	background-color: #ed145b;
-	border-radius: 15px;
-	padding: 5px 10px;
-}
-
-.blog a:hover, .relatedPost a:hover, .information, .information a, footer, .social a {
+footer, .social a {
 	color: white;
 }
-
-
-
-img {
-	padding: 25px 0;
-}
-
-#map {
-	height: 500px;
-}
-
-.blogHalf, .blogFull, .about, .related h2 {
-	padding-bottom: 25px;
-}
-
-.blogHalf {
-	width: calc(50% - 20px);
-}
-
-.blogFull {
-	margin-top: 45px;
-}
-
-.about {
-	height: 50%;
-	width: calc(33% - 25px);
-}
-
-.blogHalf, .blogFull, .about, .related {
-	background-color: #ececec;
-}
-
-
-
-
-.pic {
-	padding-bottom: 25px;
-	background-color: cornflowerblue;
-}
-
-.relatedPost {
-	background: white;
-	width: 500px;
-}
-
-.relatedPost a {
-	color: #ed145b;
-}
-
-.information {
-	background-color: #545454;
-}
-
-.blurb {
-	width: 30%;
-}
-
-.information nav {
-	width: 13%;
-}
-
-ul.infoNav li {
-	padding-bottom: 10px;
-}
-
-ul.infoNav li a:hover {
-	text-shadow: 1px 1px 0 white;
-}
-
-.subscribe {
-	width: 42%;
-}
-
-
 
 input {
 	border: none;
@@ -415,12 +182,4 @@ footer {
 
 .social a:hover {
 	color: cadetblue;
-}
-
-
-
-@media (max-width: 1300px) {
-	.wrapperConfirm {
-		flex-direction: column;
-	}
 }

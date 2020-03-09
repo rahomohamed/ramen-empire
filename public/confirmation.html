@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>FCR - CONFIRMATION</title>
+  <!-- Disable viewport zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles/confirmation-style.css" />
+  <!-- Links and scripts for Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles/payment-style.css" />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
+
 <body>
-  <header>
-    <div class="headerTop">
-      <div class="wrapper">
-        <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
-        <nav>
-          <ul class="headerNav">
-            <li><a href="about.html">about</a></li>
-            <li><a href="contact.html">contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  <main>
-<section class="alerts">
-    <div id="info">
-      <div class="firstinfo">
-        <h4>Order confirmed!  You will receive a confirmation text shortly!</h4>
-      </div>
-      <div class="secondinfo">
-        <h4>HERE'S YOUR NUMBER!</h4>
-      </div>
-    </div>
-  <div id="confirmed">
-    <div class="wrapperConfirm">
-      <!-- Embed Google Maps API -->
-      <div class="order">
-        <p>Order Summary</p>
-      </div>
+  <div class="headerTop">
+    <div class="wrapper">
+      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+      <nav>
+        <ul class="headerNav">
+          <li><a href="about.html">about</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
-</section>
+  <main>
+    <section class="payment-details">
+      <div class="wrapper">
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+        </div>
+      </div>
+    </section>
   </main>
   <footer>
     <div class="wrapper">
@@ -55,4 +56,5 @@
     </div>
   </footer>
 </body>
+
 </html>
