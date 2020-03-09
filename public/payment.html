@@ -36,105 +36,78 @@
     <main>
       <section class="payment-details">
         <div class="wrapper">
-
-          <!-- <div class="paybox"> -->
-
-<form class="ui form" method="POST" action="confirmation.html">
-  <h4 class="ui dividing header">Customer Information</h4>
-  <div class="field">
-    <label>Name</label>
-    <div class="two fields">
-      <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="First Name">
+          <form class="ui form" method="POST" action="confirmation.html">
+            <h4 class="ui dividing header">Customer Information</h4>
+            <div class="field">
+              <label>Name</label>
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="shipping[first-name]" placeholder="First Name">
+                </div>
+                <div class="field">
+                  <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Phone Number</label>
+              <input type="text" name="phone-number" placeholder="Phone Number">
+            </div>
+            <h4 class="ui dividing header">Billing Information</h4>
+            <div class="field">
+              <label>Credit Card Type</label>
+                  <div class="field">
+                    <select class="ui fluid search dropdown" name="card[type]">
+                      <option value="">Credit Card Type</option>
+                      <option value="1">Visa</option>
+                      <option value="2">Mastercard</option>
+                      <option value="3">American Express</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="fields">
+              <div class="seven wide field">
+                <label>Credit Card Number</label>
+                <input type="text" name="card[number]" maxlength="16" placeholder="Credit Card #">
+              </div>
+              <div class="three wide field">
+                <label>CVC</label>
+                <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+              </div>
+              <div class="six wide field">
+                <label>Expiration</label>
+                <div class="two fields">
+                  <div class="field">
+                    <select class="ui fluid search dropdown" name="card[expire-month]">
+                      <option value="">Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui button" tabindex="0">Submit Order</div>
+          </form>
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+        </div>
       </div>
-      <div class="field">
-        <input type="text" name="shipping[last-name]" placeholder="Last Name">
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label>Phone Number</label>
-    <input type="text" name="phone-number" placeholder="Phone Number">
-  </div>
-  <h4 class="ui dividing header">Billing Information</h4>
-  <div class="field">
-    <label>Credit Card Type</label>
-        <div class="field">
-          <select class="ui fluid search dropdown" name="card[type]">
-            <option value="">Credit Card Type</option>
-            <option value="1">Visa</option>
-            <option value="2">Mastercard</option>
-            <option value="3">American Express</option>
-          </select>
-        </div>
-  </div>
-  <div class="fields">
-    <div class="seven wide field">
-      <label>Credit Card Number</label>
-      <input type="text" name="card[number]" maxlength="16" placeholder="Credit Card #">
-    </div>
-    <div class="three wide field">
-      <label>CVC</label>
-      <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
-    </div>
-    <div class="six wide field">
-      <label>Expiration</label>
-      <div class="two fields">
-        <div class="field">
-          <select class="ui fluid search dropdown" name="card[expire-month]">
-            <option value="">Month</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        </div>
-        <div class="field">
-          <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ui button" tabindex="0">Submit Order</div>
-</form>
-
-
-
-
-
-
-
-          <!-- </div> -->
-
-
-
-
-
-
-          <div class="order-summary">
-            <h2>Order Summary</h2>
-          </div>
-        </div>
-      </section>
-
-
-
-
-
+    </section>
     </main>
-
-
-
-
-
     <footer>
       <div class="wrapper">
         <p class="copyright">&copy; 2020 FRIED CHICKEN RESTAURANT</p>
