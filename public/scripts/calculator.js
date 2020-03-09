@@ -3,7 +3,7 @@ $(document).ready(function () {
     event.preventDefault();
     let i = parseInt($("#counter").text());
     i++;
-    $("#counter").text(i);
+    $("#counter").text(i + "X BUCKET OF FRIED CHICKEN");
   });
   $(".remove").click(function () {
     event.preventDefault();
@@ -14,6 +14,6 @@ $(document).ready(function () {
     } else {
       i--;
     };
-    $("#counter").text(i);
+    $("#counter").text(i + " X BUCKET OF FRIED CHICKEN");
   });
 });
