@@ -1,53 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>FCR - MENU</title>
+  <!-- Disable viewport zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Links and scripts for Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <!-- CSS -->
   <link rel="stylesheet" href="../styles/landing-style.css" />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
+
+
 <body>
-    <div class="headerTop">
-      <div class="wrapper">
-        <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
-        <nav>
-          <ul class="headerNav">
-            <li><a href="about.html">about</a></li>
-            <li><a href="contact.html">contact</a></li>
-          </ul>
-        </nav>
-      </div>
+
+
+  <div class="headerTop">
+    <div class="wrapper">
+      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+      <nav>
+        <ul class="headerNav">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
     </div>
+  </div>
+
+
   <main>
-    <section class="related">
-      <h2>MENU</h2>
+    <section class="menu">
+      <h1>MENU</h1>
       <div class="wrapper">
-        <div class="relatedPost">
-          <div class="pic">
-            <img src="../assets/kfc.jpeg" alt="A bucket of Kentucky Fried Chicken.">
-            <h3>$12.99</h3>
-            <input id="add" type='submit' value='+'>
-            <input id="remove" type='submit' value='-'>
-          </div>
-          <div class="rant">
-            <h3>A BUCKET OF FRIED CHICKEN!!!</h3>
-            <h4>YOU KNOW YOU WANT IT!</h4>
-            <h5>IT'S SOOO TASTY!</h5>
-          </div>
+
+        <div class="menu-item">
+
+        <div class="menu-selection">
+            <div class="item-image">
+              <img class="ui medium circular image" src="../assets/piece.jpeg">
+            </div>
+            <div class="quantity">
+              <h3>$12.99</h3>
+              <button class="add ui blue button">ADD</button>
+              <button class="remove ui red button">REMOVE</button>
+            </div>
         </div>
-          <div id="calculator">
-            <form method="POST" action="payment.html">
-            <p>Food Order Calculator</p>
-            <input id="checkout" type='submit' value='Checkout'>
-            </form>
-          </div>
+
+        <div class="item-description">
+          <h3>BUCKET OF FRIED CHICKEN</h3>
+          <h4>12 pieces of original fried chicken</h4>
+        </div>
+
       </div>
+
+
+
+
+
+        <div id="calculator">
+          <form method="POST" action="payment.html">
+            <h2>Food Order</h2>
+            <button class="checkout ui green button">CHECKOUT</button>
+          </form>
+        </div>
+      </div>
+
+
+
     </section>
   </main>
+
+
+
+
+
+
+
+
+
+
+
   <footer>
     <div class="wrapper">
       <p class="copyright">&copy; 2020 FRIED CHICKEN RESTAURANT</p>
@@ -60,4 +104,8 @@
     </div>
   </footer>
 </body>
+
 </html>
+
+
+<!-- make inputs "required", i.e. no empty text boxes -->
