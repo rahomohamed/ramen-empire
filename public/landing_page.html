@@ -18,6 +18,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- External JS -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <!-- JS links -->
+  <!-- <script type="text/javascript" src="./scripts/calculator.js"></script> -->
+
 </head>
 <body>
   <div class="headerTop">
@@ -37,6 +42,8 @@
     <section class="menu">
       <h1>MENU</h1>
       <div class="wrapper">
+
+
         <div class="menu-item">
           <div class="menu-selection">
               <div class="item-image">
@@ -48,19 +55,29 @@
                 <button class="add ui blue button" tabindex="0">Add</button>
                 <button class="remove ui red button" tabindex="0">Remove</button>
               </form>
-          </div>
-          <div class="item-description">
             <h3>BUCKET OF FRIED CHICKEN</h3>
             <h4>12 pieces of original fried chicken</h4>
+            </div>
           </div>
         </div>
-        <div class="menu-item">
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="menu-item">
           <div class="menu-selection">
             <div class="item-image">
               <img class="ui medium circular image" src="../images/nuggets.jpeg">
-            </div>
+            </div> -->
             <!-- need to add method="POST" action="???" -->
-            <form class="quantity ui form">
+            <!-- <form class="quantity ui form">
               <h4 class="ui dividing header">$3.99</h4>
               <button class="add ui blue button" tabindex="0">Add</button>
               <button class="remove ui red button" tabindex="0">Remove</button>
@@ -70,12 +87,30 @@
             <h3>2 PIECE COMBO</h3>
             <h4>2 pieces of original fried chicken and individual fries</h4>
           </div>
-        </div>
+        </div> -->
       </div>
+
+
+
+
+
     </section>
   </main>
+
+      <!-- <span id="counter">99</span>
+      <button id="add">ADD</button> -->
+
+
+
+
   <form class="calculator ui form" method="POST" action="payment.html">
     <h4 class="ui dividing header">Order Summary</h4>
+
+
+
+
+
+
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
   <footer>
@@ -89,6 +124,15 @@
       </div>
     </div>
   </footer>
+
+<script>
+  $("#add").click(function () {
+
+    $("#counter").text("hello world");
+  });
+</script>
+
+
 </body>
 </html>
 <!-- make inputs "required", i.e. no empty text boxes -->
