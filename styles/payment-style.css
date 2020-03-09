@@ -53,7 +53,7 @@ li {
 }
 
 .headerTop {
-  background-color: darkcyan;
+  background-color: #2d2d2d;
   padding: 20px 0;
 }
 
@@ -70,7 +70,7 @@ li {
 }
 
 .logo, ul.headerNav li a {
-	color: black;
+	color: white;
 }
 
 .logo, .copyright {
@@ -87,7 +87,7 @@ ul.headerNav li a {
 }
 
 ul.headerNav li a:hover, .social a:hover {
-	color: cadetblue;
+	color: #4183c4
 }
 
 .payment-details {
@@ -103,15 +103,10 @@ form {
   padding: 25px;
 }
 
+/* to be filled in
 .order-summary {
-  height: 100px;
-  background-color: white;
-  border: black solid 1px;
-	border-radius: 20px;
-  position: relative;
-  text-align: center;
-  width: 300px;
-}
+
+} */
 
 footer {
   padding: 20px 0;
