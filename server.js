@@ -30,6 +30,9 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(express.static(__dirname + "/semantic"));
+app.use(express.static(__dirname + "/styles"));
+app.use(express.static(__dirname + "/images"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -47,7 +50,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("landing_page");
 });
 
 app.listen(PORT, () => {
