@@ -1,5 +1,5 @@
 // Web server config
-const PORT       = process.env.PORT || 8080;
+const PORT       = process.env.PORT || 3000;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
 const bodyParser = require("body-parser");
@@ -27,16 +27,19 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use("/semantic", express.static(__dirname + "/semantic/dist"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const menuRoutes = require("./routes/menu");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/menu", menuRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -44,8 +47,18 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("landing_page");
 });
+
+//delete this!!!!!!!
+app.get("/payment", (req, res) => {
+  res.render("payment");
+});
+
+app.get("/confirmation", (req, res) => {
+  res.render("confirmation");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
