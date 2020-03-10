@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>FCR - MENU</title>
   <!-- Disable viewport zooming -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Links and scripts for Semantic UI -->
   <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
@@ -23,13 +24,13 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script text="text/javascript" src="/scripts/app.js"></script>
   <!-- JS links -->
-  <script type="text/javascript" src="./scripts/calculator.js"></script>
+  <script type="text/javascript" src="/scripts/calculator.js"></script>
 </head>
 
 <body>
   <div class="headerTop">
     <div class="wrapper">
-      <a class="logo">FRIED CHICKEN RESTAURANT</a>
+      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
       <nav>
         <ul class="headerNav">
           <li><a href="about.html">About</a></li>
@@ -76,8 +77,10 @@
   </main>
   <form class="calculator ui form" method="POST" action="payment.html">
     <h4 class="ui dividing header">Order Summary</h4>
-    <div class="newItem"></div>
-    <div class="totalPrice"></div>
+    <div class="new-item"></div>
+    <div class="pre-tax"></div>
+    <div class="tax-amount"></div>
+    <div class="total-price"></div>
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
   <footer>

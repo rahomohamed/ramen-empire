@@ -16,6 +16,8 @@ $(() => {
   </div>
 <h4 class="ui dividing header">${item.price}</h4>
 <button class="add ui blue button" tabindex="0">Add</button>
+ <button class="addCart ui blue button" tabindex="0">Add to cart</button>
+ <h4 class="price ui dividing header">$12.99</h4>
 <button class="remove ui red button" tabindex="0">Remove</button>
 <h3>${item.name}</h3>
 <h4>${item.description}</h4>
