@@ -82,13 +82,13 @@ app.get('/', function(req, res) {
 });
 
 
-//2. CUSTOMER HITS CONFIRM ORDER / PAYMENT, creates post request to /message; 2. SERVER handles a POST request to send SMS to restaurant (sent via ajax on our home page)
+//2. CUSTOMER HITS CONFIRM ORDER / PAYMENT, creates post request to /message; SERVER handles a POST request to send SMS to restaurant (sent via ajax on our home page)
 app.post('/message', function(req, res) {
   // Use the REST client to send a text message
   client.messages.create({
     to: RESTAURANT_PHONE_NUMBER,
     from: TWILIO_PHONE_NUMBER,
-    body: `New order: ${req.body.message}.\nPlease respond with ETA as numerical value in MINUTES.` // "%0a" encodes line break
+    body: `New order: ${req.body.message}.\nPlease respond with ETA as numerical value in MINUTES.`
     //'New Order Text Sent!'
   }).then(function(message) {
     // When we get a response from Twilio, respond to the HTTP POST request
@@ -99,7 +99,7 @@ app.post('/message', function(req, res) {
 
 //**********************************
 //3. RENDERS ORDER CONFIRMATION PAGE W MAP
-app.get('/confirmed', function(req, res, next) {
+app.get('/confirmed', function(req, res) {
   res.render('confirmation');
 });
 
