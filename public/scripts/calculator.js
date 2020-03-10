@@ -1,12 +1,16 @@
 $(document).ready(function () {
   $(".addCart").click(function () {
     event.preventDefault();
-    $(".newItem").append($(`<button class="add ui blue button" tabindex="0">+</button> <span id="counter">0</span> <button class="remove ui red button" tabindex="0">-</button>`));
+    $(".newItem").append($(`<button class="add ui blue button" tabindex="0">+</button> <span id="counter">1</span> <button class="remove ui red button" tabindex="0">-</button>`));
+    let totalPrice = $(".price").text()
+    $(".totalPrice").text(`${totalPrice}`)
     $(".add").click(function () {
       event.preventDefault();
       let i = parseInt($("#counter").text());
       i++;
       $("#counter").text(i + "X BUCKET OF FRIED CHICKEN");
+      let j = parseInt(totalPrice)
+      $(".totalPrice").text(j * i)
     });
     $(".remove").click(function () {
       event.preventDefault();
@@ -18,6 +22,8 @@ $(document).ready(function () {
         i--;
       };
       $("#counter").text(i + " X BUCKET OF FRIED CHICKEN");
+      let j = parseInt(totalPrice)
+      $(".totalPrice").text(j * i)
     });
   });
 });
