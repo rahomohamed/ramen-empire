@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
   $(".addCart").click(function () {
     $(".addCart").addClass("disabled")
     event.preventDefault();
@@ -20,6 +20,8 @@ $(document).ready(function () {
       $(".tax-amount").text("13% HST: $" + (j * i * 0.13).toFixed(2))
       $(".total-price").text("Total Amount: $" + (j * i * 1.13).toFixed(2))
     });
+
+
     $(".remove").click(function () {
       event.preventDefault();
       let i = parseInt($("#counter").text());
@@ -39,7 +41,14 @@ $(document).ready(function () {
       $(".total-price").text("Total Amount: $" + (j * i * 1.13).toFixed(2))
     });
   });
-});
+
+
+
+
+
+
+
+// });
 
 
 
