@@ -22,14 +22,13 @@
   <!-- External JS -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <!-- JS links -->
-  <!-- <script type="text/javascript" src="./scripts/calculator.js"></script> -->
-
+  <script type="text/javascript" src="./scripts/calculator.js"></script>
 </head>
 
 <body>
   <div class="headerTop">
     <div class="wrapper">
-      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+      <a class="logo">FRIED CHICKEN RESTAURANT</a>
       <nav>
         <ul class="headerNav">
           <li><a href="about.html">About</a></li>
@@ -44,8 +43,6 @@
     <section class="menu">
       <h1>MENU</h1>
       <div class="wrapper">
-
-
         <div class="menu-item">
           <div class="menu-selection">
             <div class="item-image">
@@ -53,26 +50,15 @@
             </div>
             <!-- need to add method="POST" action="???" -->
             <form class="quantity ui form">
-              <h4 class="ui dividing header">$12.99</h4>
-              <button class="add ui blue button" tabindex="0">Add</button>
-              <button class="remove ui red button" tabindex="0">Remove</button>
+              <h4 class="price ui dividing header">12</h4>
+              <button class="addCart ui blue button" tabindex="0">Add to cart</button>
+              <!-- <button class="remove ui red button" tabindex="0">Remove</button> -->
             </form>
             <h3>BUCKET OF FRIED CHICKEN</h3>
             <h4>12 pieces of original fried chicken</h4>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
       <!-- <div class="menu-item">
           <div class="menu-selection">
             <div class="item-image">
@@ -91,28 +77,12 @@
           </div>
         </div> -->
       </div>
-
-
-
-
-
     </section>
   </main>
-
-  <span id="counter">99</span>
-  <button id="add">ADD</button>
-
-
-
-
-  <form class="calculator ui form" method="POST" action="payment.html">
+  <form class="calculator ui form" method="POST" action="payment.ejs">
     <h4 class="ui dividing header">Order Summary</h4>
-
-
-
-
-
-
+    <div class="newItem"></div>
+    <div class="totalPrice"></div>
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
   <footer>
@@ -126,15 +96,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    $("#add").click(function () {
-
-      $("#counter").text("hello world");
-    });
-  </script>
-
-
 </body>
 
 </html>

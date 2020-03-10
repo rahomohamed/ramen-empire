@@ -91,7 +91,7 @@ ul.headerNav li a:hover, .social a:hover {
 }
 
 .payment-details {
-	background-image: url(../images/fried-chicken.jpg);
+	background-image: url(/fried-chicken.jpg);
   background-size: cover;
   height: 100vh;
   padding: 50px 0;

@@ -45,50 +45,32 @@ li {
 }
 
 .wrapper {
+  display: flex;
+  justify-content: space-between;
 	margin: 0 auto;
 	max-width: 1280px;
-	width: 80%;
-}
-
-.wrapper, .blog {
-	justify-content: space-between;
-}
-
-.wrapper, .content, .blog, .about {
-	display: flex;
+  width: 80%;
 }
 
 .headerTop {
-  background-color: darkcyan;
+  background-color: #2d2d2d;
   padding: 20px 0;
-}
-
-.headerTop .wrapper, footer .wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.payment-details, #confirmed, #info {
-	background-image: url(../images/fried-chicken.jpg);
-	background-size: cover;
 }
 
 .headerTop .wrapper, ul.headerNav li, footer {
 	align-items: center;
 }
 
-
-.logo, ul.headerNav, ul.headerNav li, .headerContent {
-	display: flex;
-	flex: 1 0 auto;
-}
-
 .logo {
 	font-size: 30px;
 }
 
+.logo, ul.headerNav, ul.headerNav li {
+	display: flex;
+}
+
 .logo, ul.headerNav li a {
-	color: black;
+	color: white;
 }
 
 .logo, .copyright {
@@ -97,7 +79,7 @@ li {
 
 ul.headerNav li {
 	justify-content: center;
-	padding: 0 0 0 25px;
+	padding-left: 25px;
 }
 
 ul.headerNav li a {
@@ -105,40 +87,27 @@ ul.headerNav li a {
 }
 
 ul.headerNav li a:hover, .social a:hover {
-	color: cadetblue;
+	color: #4183c4
 }
 
 .payment-details {
-  padding: 50px 0;
+	background-image: url(/fried-chicken.jpg);
+  background-size: cover;
   height: 100vh;
+  padding: 50px 0;
 }
 
-.payment-details .wrapper {
-	display: flex;
-	justify-content: space-between;
-}
-
-form {
-	background-color: cornflowerblue;
-	padding: 25px;
-	border-radius: 25px;
-}
-
+/* to be filled in
 .order-summary {
-  height: 100px;
-	width: 300px;
-	text-align: center;
-	border: black solid 1px;
-	background-color: white;
-	border-radius: 20px;
-	position: relative;
-}
+
+} */
 
 footer {
   padding: 20px 0;
 }
 
 .copyright {
+  font-size: 14px;
   margin: 0;
   padding: 0;
 }
@@ -147,39 +116,10 @@ footer, .social a {
 	color: white;
 }
 
-input {
-	border: none;
-	color: lightgrey;
-	font-weight: 400;
-}
-
-input, .copyright {
-	font-size: 14px;
-}
-
-input[type=email], p.italic {
-	font-family: 'Noto Serif', serif;
-	font-style: italic;
-	text-align: center;
-}
-
-input[type=email] {
-	background-color: white;
-	padding: 15px 44px;
-}
-
-input[type=submit] {
-	padding: 15px 65px;
-}
-
 footer {
 	background-color: #2d2d2d;
 }
 
 .social i {
 	padding: 5px 5px;
-}
-
-.social a:hover {
-	color: cadetblue;
 }
