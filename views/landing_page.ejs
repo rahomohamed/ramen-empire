@@ -7,12 +7,12 @@
   <!-- Disable viewport zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Links and scripts for Semantic UI -->
-  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <!-- CSS -->
-  <link rel="stylesheet" href="/landing-style.css" />
+  <link rel="stylesheet" href="../styles/landing-style.css" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet">
@@ -45,20 +45,14 @@
       <div class="wrapper">
         <div class="menu-item">
           <div class="menu-selection">
+            <div class="item-image">
+              <img class="ui medium circular image" src="/piece.jpeg">
+            </div>
             <!-- need to add method="POST" action="???" -->
             <form class="quantity ui form">
-<<<<<<< HEAD
               <h4 class="price ui dividing header">12</h4>
               <button class="addCart ui blue button" tabindex="0">Add to cart</button>
               <!-- <button class="remove ui red button" tabindex="0">Remove</button> -->
-=======
-                <div class="item-image">
-                  <img class="ui medium circular image" src="/piece.jpeg">
-                </div>
-              <h4 class="ui dividing header">$12.99</h4>
-              <button class="add ui blue button" tabindex="0">Add</button>
-              <button class="remove ui red button" tabindex="0">Remove</button>
->>>>>>> 97c77ba68e1f97bf1a8341e2fb2a7b4d0c949866
             </form>
             <h3>BUCKET OF FRIED CHICKEN</h3>
             <h4>12 pieces of original fried chicken</h4>
@@ -85,7 +79,7 @@
       </div>
     </section>
   </main>
-  <form class="calculator ui form" method="POST" action="payment.ejs">
+  <form class="calculator ui form" method="POST" action="payment.html">
     <h4 class="ui dividing header">Order Summary</h4>
     <div class="newItem"></div>
     <div class="totalPrice"></div>
