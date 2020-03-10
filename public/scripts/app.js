@@ -11,7 +11,7 @@ $(() => {
   const createMenuItem = function(item) {
     return`  <article class = "menu">
     <div class="item-image">
-    <img class="ui medium circular image" src=${item.image}>
+    <img class="ui medium circular image" src=/images/${item.image}>
   </div>
   <h3>${item.name}</h3>
   <h4 class="ui dividing header">${item.price}</h4>

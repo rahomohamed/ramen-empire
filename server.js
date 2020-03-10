@@ -30,9 +30,7 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
-app.use(express.static(__dirname + "/semantic"));
-app.use(express.static(__dirname + "/styles"));
-app.use(express.static(__dirname + "/images"));
+app.use("/semantic", express.static(__dirname + "/semantic/dist"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own

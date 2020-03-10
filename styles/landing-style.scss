@@ -102,7 +102,7 @@ ul.headerNav li a:hover {
 }
 
 .menu {
-  background-image: url(/fried-chicken.jpg);
+  background-image: url(/images/fried-chicken.jpg);
   background-size: cover;
   padding-top: 50px;
 }
@@ -171,7 +171,7 @@ ul.headerNav li a:hover {
 
 .calculator.ui.form {
   align-items: center;
-  background-color: rgba(100,149,237, 0.7);
+  background-color: rgba(100,149,237, 0.8);
   border: black solid 1px;
   border-radius: 25px;
   bottom: 79px;
@@ -181,6 +181,15 @@ ul.headerNav li a:hover {
   position: fixed;
   right: 25px;
   width: 30%;
+}
+
+.new-item, .pre-tax, .tax-amount, .total-price {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.total-price {
+  margin-bottom: 10px;
 }
 
 footer {
