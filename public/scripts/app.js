@@ -22,7 +22,7 @@ $(() => {
   </article>`
 }
 
-// renders tweets
+// renders menu items
 const renderMenu = function(items) {
   // $("#menu-container").empty();
   for (let item of items) {
@@ -30,7 +30,7 @@ const renderMenu = function(items) {
   $("#menu-container").append(createMenuItem(item));
   }
 }
-// loads tweets from /tweets
+// loads menu items
 const loadMenu = function() {
 $.ajax({
 url: '/api/menu',
