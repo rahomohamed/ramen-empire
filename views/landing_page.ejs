@@ -7,12 +7,12 @@
   <!-- Disable viewport zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Links and scripts for Semantic UI -->
-  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <!-- CSS -->
-  <link rel="stylesheet" href="/landing-style.css" />
+  <link rel="stylesheet" href="../styles/landing-style.css" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet">
@@ -23,14 +23,13 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script text="text/javascript" src="/scripts/app.js"></script>
   <!-- JS links -->
-  <!-- <script type="text/javascript" src="./scripts/calculator.js"></script> -->
-
+  <script type="text/javascript" src="./scripts/calculator.js"></script>
 </head>
 
 <body>
   <div class="headerTop">
     <div class="wrapper">
-      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+      <a class="logo">FRIED CHICKEN RESTAURANT</a>
       <nav>
         <ul class="headerNav">
           <li><a href="about.html">About</a></li>
@@ -45,10 +44,11 @@
     <section class= "menu">
       <h1>MENU</h1>
       <div class="wrapper">
-
-
         <div class="menu-item">
           <div class="menu-selection">
+            <div class="item-image">
+              <img class="ui medium circular image" src="/piece.jpeg">
+            </div>
             <!-- need to add method="POST" action="???" -->
             <form  id = "menu-container"  class="quantity ui form">
 
@@ -56,17 +56,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
       <!-- <div class="menu-item">
           <div class="menu-selection">
             <div class="item-image">
@@ -85,28 +74,12 @@
           </div>
         </div> -->
       </div>
-
-
-
-
-
     </section>
   </main>
-
-  <span id="counter">99</span>
-  <button id="add">ADD</button>
-
-
-
-
   <form class="calculator ui form" method="POST" action="payment.html">
     <h4 class="ui dividing header">Order Summary</h4>
-
-
-
-
-
-
+    <div class="newItem"></div>
+    <div class="totalPrice"></div>
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
   <footer>
@@ -120,15 +93,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    $("#add").click(function () {
-
-      $("#counter").text("hello world");
-    });
-  </script>
-
-
 </body>
 
 </html>

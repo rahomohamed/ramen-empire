@@ -55,6 +55,16 @@ app.get("/", (req, res) => {
   res.render("landing_page");
 });
 
+//delete this!!!!!!!
+app.get("/payment", (req, res) => {
+  res.render("payment");
+});
+
+app.get("/confirmation", (req, res) => {
+  res.render("confirmation");
+});
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
