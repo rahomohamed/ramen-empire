@@ -50,15 +50,21 @@ app.get("/", (req, res) => {
   res.render("landing_page");
 });
 
-//delete this!!!!!!!
 app.get("/payment", (req, res) => {
   res.render("payment");
+});
+
+app.post("/payment", (req, res) => {
+res.redirect("/payment");
 });
 
 app.get("/confirmation", (req, res) => {
   res.render("confirmation");
 });
 
+app.post("/confirmation", (req, res) => {
+res.redirect("/confirmation");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
