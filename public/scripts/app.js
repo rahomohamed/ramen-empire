@@ -1,14 +1,4 @@
 $(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-    }
-  });;
-});
-$(() => {
   // $.ajax({
   //   method: "GET",
   //   url: "/api/users"
@@ -30,4 +20,27 @@ $(() => {
 <h3>${item.name}</h3>
 <h4>${item.description}</h4>
   </article>`
-    }
+}
+
+// renders tweets
+const renderMenu = function(items) {
+  // $("#menu-container").empty();
+  for (let item of items) {
+    console.log(item)
+  $("#menu-container").append(createMenuItem(item));
+  }
+}
+// loads tweets from /tweets
+const loadMenu = function() {
+$.ajax({
+url: '/api/menu',
+method: "GET",
+dataType: "JSON"
+})
+.then(response => {
+renderMenu(response);
+});
+}
+loadMenu();
+})
+

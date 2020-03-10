@@ -21,6 +21,7 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- External JS -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script text="text/javascript" src="/scripts/app.js"></script>
   <!-- JS links -->
   <!-- <script type="text/javascript" src="./scripts/calculator.js"></script> -->
 
@@ -41,7 +42,7 @@
     </div>
   </div>
   <main>
-    <section class="menu">
+    <section class= "menu">
       <h1>MENU</h1>
       <div class="wrapper">
 
@@ -49,16 +50,9 @@
         <div class="menu-item">
           <div class="menu-selection">
             <!-- need to add method="POST" action="???" -->
-            <form class="quantity ui form">
-                <div class="item-image">
-                  <img class="ui medium circular image" src="/piece.jpeg">
-                </div>
-              <h4 class="ui dividing header">$12.99</h4>
-              <button class="add ui blue button" tabindex="0">Add</button>
-              <button class="remove ui red button" tabindex="0">Remove</button>
+            <form  id = "menu-container"  class="quantity ui form">
+
             </form>
-            <h3>BUCKET OF FRIED CHICKEN</h3>
-            <h4>12 pieces of original fried chicken</h4>
           </div>
         </div>
       </div>
