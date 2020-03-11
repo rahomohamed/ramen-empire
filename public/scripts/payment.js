@@ -39,7 +39,7 @@ $(document).ready(function() {
         type: "POST",
         data: "JSON",
         success: function() {
-          window.location.href = "http://www.google.com";
+          window.location.href = "/confirmation";
         }
       });
     }
