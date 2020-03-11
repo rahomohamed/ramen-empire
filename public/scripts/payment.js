@@ -11,7 +11,7 @@ $(document).ready(function() {
   //Target the submit button
   const $form = $("#submit-button");
   $form.click(function() {
-    event.preventDefault();
+
     const name = $("#first-name").val();
     const lastName = $("#last-name").val();
     const phone = $("#phone-form").val();
@@ -28,21 +28,13 @@ $(document).ready(function() {
       !isEntryValid(cardDate) ||
       !isEntryValid(cardCvv)
     ) {
-      //Make sure that the text is valid or not too long with above functions
-      alert(
+
+    event.preventDefault();
+    alert(
         "You cannot leave a field empty, please fill out all the forms to proceed"
-      );
-    } else {
-      $.ajax({
-        // If all pass, then AJAX post request and success function
-        url: "localhost:3000/api/address",
-        type: "POST",
-        data: { address: $(".address").val() },
-        success: function(data) {
-          console.log("DATA", data);
-          window.location.href = "/confirmation";
-        }
-      });
-    }
+    );
+  } 
+
+
   });
 });
