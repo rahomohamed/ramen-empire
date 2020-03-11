@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
-const twilio = (data) => {
+const twilioFunction = (data) => {
   console.log('TODO: implement twilio: ', data);
 }
 
@@ -26,13 +26,16 @@ module.exports = (db) => {
   router.post("/confirmation", (req, res) => {
     // save data to ... tab le
     // const data = req.body...
-    db.query('INSERT')
+    const address = req.body.address
+
+    db.query(`
+      INSERT INTO address (address)
+      VALUES ($1), [address];`)
+
       .then(res => {
-        twilio(data);
+        twilioFunction(data);
         res.redirect("/confirmation");
       })
-
-    const address = req.body.address
 
     res.send(address);
 

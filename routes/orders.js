@@ -10,10 +10,10 @@ module.exports = db => {
     const readyTime = 15;
 
     db.query(`
-      INSERT INTO orders
-        (user_id, reference_number, ready_time)
-      VALUES ($1, $2, $3);`,
-      [userId, referenceNumber, readyTime])
+      INSERT INTO order_items
+        (menu_item_id, order_id, quantity)
+      VALUES ($1, $2, $3),
+      [1, 1, 2];`)
       .then(data => {
         const order = data.rows;
         // return db.query(`INSERT INTO order_items (order_id) VALUES ($1)`, [order.id]);
