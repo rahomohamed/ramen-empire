@@ -81,4 +81,29 @@ $(() => {
       });
   }
   loadMenu();
-})
+
+// create order
+const createOrderSummary = function (order) {
+  return `  <article class = "order">
+  <div class="item-image">
+  <img class="ui medium circular image" src=${item.image}>
+</div>
+<h3>${item.name}</h3>
+<h4 class="ui dividing header">${item.price}</h4>
+<h4>${item.quantity}</h4>
+</article>`
+}
+
+// load order
+// const loadMenu = function () {
+//   $.ajax({
+//     url: '/api/menu',
+//     method: "GET"
+//   })
+//     .then(response => {
+//       renderMenu(response);
+//     });
+// }
+// loadMenu();
+// });
+});
