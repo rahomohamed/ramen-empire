@@ -3,9 +3,26 @@ let menuItems = {};
 let order = {};
 
 $(() => {
-  // template for menu items
-  const createMenuItem = function(item) {
-    return `
+
+
+
+
+
+      // $.ajax({
+  //   method: "GET",
+  //   url: "/api/users"
+  // }).done((users) => {
+  //   for(user of users) {
+  //     $("<div>").text(user.name).appendTo($("body"));
+  //   }
+  // });;
+
+    //initialize accordion
+  $('.ui.accordion').accordion();
+
+    const createMenuItem = function (item) {
+    // article class name should be menu-item
+        return `
     <article class = "menu" data-id= ${item.id}>
     <div class="item-image">
       <img class="ui medium circular image" src=${item.image}>
@@ -16,6 +33,7 @@ $(() => {
     <h4>${item.description}</h4>
     </article>`;
   };
+
 
   // renders menu items
   const renderMenu = function(items) {
