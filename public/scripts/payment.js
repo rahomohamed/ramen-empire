@@ -35,10 +35,11 @@ $(document).ready(function() {
     } else {
       $.ajax({
         // If all pass, then AJAX post request and success function
-        url: "/confirmation",
+        url: "/payment",
         type: "POST",
-        data: JSON.stringify({ address: $(".address").val() }),
-        success: function() {
+        data: { address: $(".address").val() },
+        success: function(data) {
+          console.log("DATA", data);
           window.location.href = "/confirmation";
         }
       });
