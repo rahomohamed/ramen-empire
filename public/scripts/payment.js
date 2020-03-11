@@ -37,7 +37,7 @@ $(document).ready(function() {
         // If all pass, then AJAX post request and success function
         url: "/confirmation",
         type: "POST",
-        data: "JSON",
+        data: JSON.stringify({ address: $(".address").val() }),
         success: function() {
           window.location.href = "/confirmation";
         }
@@ -45,15 +45,3 @@ $(document).ready(function() {
     }
   });
 });
-
-// else {
-//   $.ajax({
-//     // If all pass, then AJAX post request and success function
-//     url: "/payment",
-//     type: "POST",
-//     data: $form.serialize(),
-//     success: function() {
-//       window.location.href = "/confirmation";
-//     }
-//   });
-// }
