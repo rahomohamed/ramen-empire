@@ -59,7 +59,7 @@ header {
 .menuMain {
   background-image: url("../images/kitchen.jpeg");
   background-size: cover;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .wrapper {
@@ -112,6 +112,16 @@ ul.headerNav li a:hover {
   color: #4183c4
 }
 
+
+
+.menuMain .wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 100px 0;
+}
+
+
 .title h1 {
   background-image: url("../images/bowl.jpeg");
   background-size: cover;
@@ -125,13 +135,6 @@ ul.headerNav li a:hover {
   display: inline-block;
   font-size: 100px;
   margin-bottom: 100px;
-}
-
-.menuMain .wrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 100px 0;
 }
 
 // form and menu-item merged with menu-selection to become #menu-container

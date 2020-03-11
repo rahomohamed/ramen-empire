@@ -17,7 +17,7 @@ $(() => {
   //   }
   // });;
 
-    //initialize accordion
+  // initialize accordion
   $('.ui.accordion').accordion();
 
     const createMenuItem = function (item) {
