@@ -4,6 +4,7 @@ require('dotenv').config();
 const PORT       = process.env.PORT || 3000;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
+const router     = express.Router();
 const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
@@ -36,37 +37,19 @@ app.use("/semantic", express.static(__dirname + "/semantic/dist"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
+const routes = require("./routes/routes")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/menu", menuRoutes(db));
+app.use("/", routes);
 // Note: mount other resources here, using the same pattern above
 
+// ***ROUTES MOVED TO ./routes/routes.js
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("landing_page");
-});
 
-app.get("/payment", (req, res) => {
-  res.render("payment");
-});
-
-app.post("/payment", (req, res) => {
-res.redirect("/payment");
-});
-
-app.get("/confirmation", (req, res) => {
-  res.render("confirmation");
-});
-
-app.post("/confirmation", (req, res) => {
-res.redirect("/confirmation");
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
