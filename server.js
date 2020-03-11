@@ -42,13 +42,16 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const routes = require("./routes/routes");
 const addressRoutes = require("./routes/address");
+const ordersRoutes = require("./routes/orders");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/menu", menuRoutes(db));
-app.use("/", routes);
 app.use("/api/address", addressRoutes(db));
+app.use("/api/orders", ordersRoutes(db));
+app.use("/", routes(db));
 // Note: mount other resources here, using the same pattern above
 
 // ***ROUTES MOVED TO ./routes/routes.js
