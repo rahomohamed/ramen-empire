@@ -44,18 +44,40 @@
 
   <main>
     <section class= "menuMain">
+
+
       <div class="wrapper">
-        <!-- <h1>RAMEN</h1> -->
-        <!-- <div id ="menu-container"></div> -->
+
         <div class="ui accordion">
           <div class="title">
-            <h1>RAMEN</h1>
+            <h1 id="ramen">RAMEN</h1>
           </div>
           <div class="content">
-            <div id="menu-container"></div>
+            <!-- menu-container is rendered -->
+            <div class="menu-container"></div>
+          </div>
+        </div>
+
+        <div class="ui accordion">
+          <div class="title">
+            <h1 id="sides">SIDES</h1>
+          </div>
+          <div class="content">
+            <div class="menu-container"></div>
+          </div>
+        </div>
+
+        <div class="ui accordion">
+          <div class="title">
+            <h1 id="desserts">DESSERTS</h1>
+          </div>
+          <div class="content">
+            <div class="menu-container"></div>
           </div>
         </div>
       </div>
+
+
     </section>
   </main>
   <form class="calculator ui form" method="POST" action="/api/orders">

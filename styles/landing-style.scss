@@ -59,7 +59,6 @@ header {
 .menuMain {
   background-image: url("../images/kitchen.jpeg");
   background-size: cover;
-  // height: 100vh;
 }
 
 .wrapper {
@@ -118,12 +117,16 @@ ul.headerNav li a:hover {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 100px 0;
+  padding: 200px 0;
+}
+
+.accordion {
+  margin-bottom: 200px;
+  width: 75%;
 }
 
 
-.title h1 {
-  background-image: url("../images/bowl.jpeg");
+h1 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -131,14 +134,24 @@ ul.headerNav li a:hover {
   color: darkgreen;
   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
   // text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-  padding: 50px 0;
-  display: inline-block;
+  // padding: 50px 0;
   font-size: 100px;
-  margin-bottom: 100px;
+}
+
+#ramen {
+  background-image: url("../images/bowl.jpeg");
+}
+
+#sides {
+  background-image: url("../images/sides.jpeg");
+}
+
+#desserts {
+  background-image: url("../images/green-cream.jpeg");
 }
 
 // form and menu-item merged with menu-selection to become #menu-container
-#menu-container {
+.menu-container {
   align-items: center;
   background-color: rgba(255,255,255,0.5);
   border: black solid 1px;
@@ -148,6 +161,7 @@ ul.headerNav li a:hover {
   flex-direction: row;
   // padding: 25px;
   // width: 33%;
+  // width: 75%;
 }
 
 .menu{

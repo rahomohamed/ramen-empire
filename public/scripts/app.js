@@ -20,7 +20,7 @@ $(() => {
   // initialize accordion
   $('.ui.accordion').accordion();
 
-    const createMenuItem = function (item) {
+  const createMenuItem = function (item) {
     // article class name should be menu-item
         return `
     <article class = "menu" data-id= ${item.id}>
@@ -38,7 +38,7 @@ $(() => {
   // renders menu items
   const renderMenu = function(items) {
     for (let item of items) {
-      $("#menu-container").append(createMenuItem(item));
+      $(".menu-container").append(createMenuItem(item));
     }
 
     // renders order summary/calculator form when menu item is added to order, also adds class to addCart button to disable it
