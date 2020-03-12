@@ -34,7 +34,8 @@ $(() => {
 
       // variable declarations for tax and total calculations
       const addItem = menuItems[itemId].name;
-      order[addItem] = { qty: 1, name: addItem };
+      // order[addItem] = { qty: 1, name: addItem };
+      order[addItem] = { qty: 1};
       const id = Number(itemId) - 1;
       const classId = "class" + id;
 
@@ -77,6 +78,7 @@ $(() => {
       $(".pre-tax").text(`Total Before Tax: $${preTax}`);
       $(".tax-amount").text(`13% HST: $${tax}`);
       $(".total-price").text(`Total Amount: $${grandTotal}`);
+      console.log(order)
 
       // adds items to cart (which have already been added), and updates the tax and total price
       $(`.itm-${classId}`).click(function(event) {
@@ -86,7 +88,8 @@ $(() => {
         const item = menuItems[n + 1].name;
         order[item].qty++;
 
-        $(`#t-${classId}`).text(`${order[item].qty} X ${order[item].name}`);
+        // $(`#t-${classId}`).text(`${order[item].qty} X ${order[item].name}`);
+        $(`#t-${classId}`).text(`${order[item].qty} X ${addItem}`);
 
         // calculations
         let fried;
@@ -118,6 +121,7 @@ $(() => {
         $(".pre-tax").text(`Total Before Tax: $${preTax}`);
         $(".tax-amount").text(`13% HST: $${tax}`);
         $(".total-price").text(`Total Amount: $${grandTotal}`);
+        console.log(order)
 
       });
 
@@ -137,7 +141,8 @@ $(() => {
         order[item].qty--;
         // removes the first occurence of the menu item (we need to make the item row dissappear when you get to 0)
         $(`.${classId}, .counter-${classId}`).text(
-          `${order[item].qty} X ${order[item].name}`
+          // `${order[item].qty} X ${order[item].name}`
+          `${order[item].qty} X ${addItem}`
         );
         // calculations
         let fried;
@@ -169,6 +174,7 @@ $(() => {
         $(".pre-tax").text(`Total Before Tax: $${preTax}`);
         $(".tax-amount").text(`13% HST: $${tax}`);
         $(".total-price").text(`Total Amount: $${grandTotal}`);
+        console.log(order)
 
         if (order[item].qty <= 0) {
           delete order[item];
