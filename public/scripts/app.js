@@ -178,7 +178,7 @@ const sendOrderToDb = function (orderTest) {
     $.ajax({
       url: '/api/orders',
       method: "POST",
-      data: JSON.stringify(orderTest)
+      data: (orderTest)
     })
       .then(response => {
         console.log('after Ajax post: ');

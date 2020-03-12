@@ -6,11 +6,18 @@ const userId = 1;
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    //const referenceNumber = new Date().getTime();
+    //const order_Id = new Date().getTime();
 
     console.log('AFTER SUBMIT BUTTON: ', req.body);
 
-    //req.body:
+    const orderDetails = req.body
+    console.log('ORDER DEETS AS JS OBJ: ', orderDetails);
+
+    for (let key in orderDetails) {
+      console.log('from the looop: ', key);
+    }
+
+
    // { '{"item1":"thing","item2":"thing2"}': '' }
 
 
@@ -25,8 +32,8 @@ module.exports = db => {
     db.query(`
       INSERT INTO order_items
         (menu_item_id, order_id, quantity)
-      VALUES ($1, $2, $3),
-      [1, 1, 2];`)
+      VALUES ($1, $2, $3) RETURNING *;`,
+      [order_items.menu_item_id, order_items.order_id, order_items.quantity])
       .then(data => {
         const order = data.rows;
         res.send(order);
