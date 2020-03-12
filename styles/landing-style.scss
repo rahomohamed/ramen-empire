@@ -111,23 +111,19 @@ ul.headerNav li a:hover {
   color: #4183c4
 }
 
-
-
 .menuMain .wrapper {
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 200px 0;
-}
+  align-items: center;
+  justify-content: center;
 
-.accordion {
-  margin-bottom: 200px;
-  width: 75%;
 }
 
 .title {
-  height: 500px;
-  width: 500px;
+  height: 420px;
+  width: 420px;
   border-radius: 50%;
   background-color: green;
   display: flex;
@@ -142,21 +138,11 @@ ul.headerNav li a:hover {
 h2 {
   color: darkgreen;
   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-  // text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-  // padding: 50px 0;
-  font-size: 100px;
+  font-size: 75px;
 }
 
 #ramen {
   background-image: url("../images/bowl.jpeg");
-}
-
-#sides {
-  background-image: url("../images/sides.jpeg");
-}
-
-#desserts {
-  background-image: url("../images/green-cream.jpeg");
 }
 
 // form and menu-item merged with menu-selection to become #menu-container
@@ -175,7 +161,6 @@ h2 {
 
 .menu{
 margin: 25px;
-
 }
 
 .item-image {
