@@ -10,7 +10,8 @@ module.exports = db => {
 
     console.log('AFTER SUBMIT BUTTON: ', req.body);
 
-
+    //req.body:
+   // { '{"item1":"thing","item2":"thing2"}': '' }
 
 
     if ('RoutingStillNeedsWork' === false) {
@@ -27,9 +28,10 @@ module.exports = db => {
       VALUES ($1, $2, $3),
       [1, 1, 2];`)
       .then(data => {
-       // const order = data.rows;
-          console.log(data);
-          res.redirect('/payment');
+        const order = data.rows;
+        res.send(order);
+        //  console.log(data);
+       res.redirect('/payment');
       })
       // .then(data => {
       //   //  call twilio
