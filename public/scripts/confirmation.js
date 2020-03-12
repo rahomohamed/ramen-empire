@@ -1,8 +1,10 @@
+// require("dotenv").config();
+// const GOOGLE_API = process.env.GOOGLE_API;
 $(document).ready(function() {
   const replaceFunction = entry => {
     return entry.replace(/ /g, "+");
   };
-
+  console.log(googleApiKey);
   $.ajax({
     method: "GET",
     url: "/api/address"
@@ -13,7 +15,7 @@ $(document).ready(function() {
     height="450"
     frameborder="0"
     style="border:0"
-    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBSw802_5QvEbUyWjg38mC2j5BpAruClm0&origin=${newAddress}&destination=Lighthouse+Labs+Toronto&avoid=tolls|highways"
+    src="https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${newAddress}&destination=Lighthouse+Labs+Toronto&avoid=tolls|highways"
     allowfullscreen
   ></iframe>`;
 
