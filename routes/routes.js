@@ -24,8 +24,8 @@ module.exports = (db) => {
     res.render("payment");
   });
 
-
-
+//Submit button on payment form creates POST request to "/api/twilio"
+//twilio sends SMS then redirects to "/confirmation"
 
   router.get("/confirmation", (req, res) => {
     console.log('BODY: ', req.body)
@@ -37,8 +37,7 @@ module.exports = (db) => {
   });
 
 
-
-  ///THIS ROUTE SHOULDN"T BE NECESSARY
+  ///THIS ROUTE SHOULDN"T BE NECESSARY:
   router.post("/confirmation", (req, res) => {
     console.log('BODY: ', req.body)
 
