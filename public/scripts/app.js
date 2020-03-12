@@ -197,4 +197,18 @@ $(() => {
     });
   };
   loadMenu();
-});
+})
+
+
+
+const sendOrderToDb = function () {
+  $.ajax({
+    url: '/api/menu',
+    method: "POST",
+    data: obj
+  })
+    .then(response => {
+      console.log('after Ajax post: ', response.data);
+    });
+}
+//sendOrderToDb();
