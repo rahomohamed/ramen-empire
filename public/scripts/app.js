@@ -35,9 +35,12 @@ $(() => {
 
       // variable declarations for tax and total calculations
       const addItem = menuItems[itemId].name;
-      const addPreTax = parseFloat(menuItems[itemId].price);
-      const addTax = (addPreTax * 0.13).toFixed(2);
-      const addTotal = (addPreTax * 1.13).toFixed(2);
+
+      // comment out since math not needed
+      // const addPreTax = parseFloat(menuItems[itemId].price);
+      // const addTax = (addPreTax * 0.13).toFixed(2);
+      // const addTotal = (addPreTax * 1.13).toFixed(2);
+
       order[addItem] = { qty: 1, name: addItem };
       // order = {
       // name: quantity
@@ -45,7 +48,45 @@ $(() => {
       // order = [{}, {}]
       const id = Number(itemId) - 1;
       const classId = "class" + id;
-      console.log(order);
+      // console.log(order);
+
+
+
+
+
+      // calculations
+      let fried;
+      if (order["Fried Chicken Meal"]) {
+        fried = ((order["Fried Chicken Meal"].qty * 12))
+      } else {
+        fried = 0
+      };
+
+      let sandwich;
+      if (order["Chicken Sandwich"]) {
+        sandwich = ((order["Chicken Sandwich"].qty * 11))
+      } else {
+        sandwich = 0
+      };
+
+      let tender;
+      if (order["Chicken Tender Meal"]) {
+        tender = ((order["Chicken Tender Meal"].qty * 13))
+      } else {
+        tender = 0
+      };
+
+      const preTax = fried + sandwich + tender
+      const tax = (preTax * 0.13).toFixed(2)
+      const grandTotal = (preTax * 1.13).toFixed(2)
+
+
+
+
+
+
+
+
 
       // buttons are added and taxes/total price for the menu item appear in the summary/calculator form
 
@@ -54,31 +95,77 @@ $(() => {
           `<span id =${classId}><button class="add ui blue button itm-${classId}" tabindex="0">+</button> <button class="remove-itm-${classId} ui red button" tabindex="0">-</button> <span id="t-${classId}" class="counter-${classId}">1 X ${addItem}</span> <br> <br></span>`
         )
       );
-      $(".pre-tax").text(`Total Before Tax: $${addPreTax}`);
-      $(".tax-amount").text(`13% HST: $${addTax}`);
-      $(".total-price").text(`Total Amount: $${addTotal}`);
+
+      // calculations are done above
+      $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+      $(".tax-amount").text(`13% HST: $${tax}`);
+      $(".total-price").text(`Total Amount: $${grandTotal}`);
 
       // adds items to cart (which have already been added), and updates the tax and total price
       $(`.itm-${classId}`).click(function(event) {
         event.preventDefault();
+
+        // console.log(order);
         const n = Number(classId.split("class")[1]);
         const item = menuItems[n + 1].name;
         order[item].qty++;
 
         $(`#t-${classId}`).text(`${order[item].qty} X ${order[item].name}`);
-        let j = addPreTax;
-        let i = parseInt($(`.counter-${classId}`).text());
+
+        // calculations
+        let fried;
+        if (order["Fried Chicken Meal"]) {
+          fried = ((order["Fried Chicken Meal"].qty * 12))
+        } else {
+          fried = 0
+        };
+
+        let sandwich;
+        if (order["Chicken Sandwich"]) {
+          sandwich = ((order["Chicken Sandwich"].qty * 11))
+        } else {
+          sandwich = 0
+        };
+
+        let tender;
+        if (order["Chicken Tender Meal"]) {
+          tender = ((order["Fried Chicken Meal"].qty * 13))
+        } else {
+          tender = 0
+        };
+
+        const preTax = fried + sandwich + tender
+        const tax = (preTax * 0.13).toFixed(2)
+        const grandTotal = (preTax * 1.13).toFixed(2)
+
+
+
+        //comment out since math not needed
+        // let j = addPreTax;
+        // let i = parseInt($(`.counter-${classId}`).text());
+
+        // this is raho's code
         // $(".new-item").html(`<button class="add ui blue button itm-${classId}" tabindex="0">+</button> <button class="remove ui red button ${classId}" tabindex="0">-</button> <span class="counter ${classId}">${tempO.qty} X ${(tempO.name)}</span> <br> <br>`);
-        $(".pre-tax").text("Total Before Tax: $" + (i * j).toFixed(2));
-        $(".tax-amount").text("13% HST: $" + (i * j * 0.13).toFixed(2));
-        $(".total-price").text("Total Amount: $" + (i * j * 1.13).toFixed(2));
+
+
+        // calculations are done above
+        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+        $(".tax-amount").text(`13% HST: $${tax}`);
+        $(".total-price").text(`Total Amount: $${grandTotal}`);
+
       });
 
       // removes items from cart (which have already been added), and updates the tax and total price
       $(`.remove-itm-${classId}`).click(function() {
         event.preventDefault();
+        // console.log(order)
+
         let i = parseInt($(`.counter-${classId}`).text());
-        console.log("I IS", i);
+
+        //comment out for time being
+        // console.log("I IS", i);
+
+
         if (i === 1) {
           i = 0;
           $(".addCart").removeClass("disabled");
@@ -95,10 +182,41 @@ $(() => {
         $(`.${classId}, .counter-${classId}`).text(
           `${order[item].qty} X ${order[item].name}`
         );
-        let j = addPreTax;
-        $(".pre-tax").text("Total Before Tax: $" + (i * j).toFixed(2));
-        $(".tax-amount").text("13% HST: $" + (i * j * 0.13).toFixed(2));
-        $(".total-price").text("Total Amount: $" + (i * j * 1.13).toFixed(2));
+
+
+        // calculations
+        let fried;
+        if (order["Fried Chicken Meal"]) {
+          fried = ((order["Fried Chicken Meal"].qty * 12))
+        } else {
+          fried = 0
+        };
+
+        let sandwich;
+        if (order["Chicken Sandwich"]) {
+          sandwich = ((order["Chicken Sandwich"].qty * 11))
+        } else {
+          sandwich = 0
+        };
+
+        let tender;
+        if (order["Chicken Tender Meal"]) {
+          tender = ((order["Fried Chicken Meal"].qty * 13))
+        } else {
+          tender = 0
+        };
+
+        const preTax = fried + sandwich + tender
+        const tax = (preTax * 0.13).toFixed(2)
+        const grandTotal = (preTax * 1.13).toFixed(2)
+
+
+        // calculations are done above
+        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+        $(".tax-amount").text(`13% HST: $${tax}`);
+        $(".total-price").text(`Total Amount: $${grandTotal}`);
+
+
         if (order[item].qty <= 0) {
           delete order[item];
         }
