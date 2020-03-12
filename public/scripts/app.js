@@ -7,6 +7,19 @@ $(() => {
   const createMenuItem = function(item) {
     return `
     <article class = "menu" data-id= ${item.id}>
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/api/users"
+  // }).done((users) => {
+  //   for(user of users) {
+  //     $("<div>").text(user.name).appendTo($("body"));
+  //   }
+  // });;
+
+const obj = {item1: 'meal', item2: 'dessert'};
+
+  const createMenuItem = function (item) {
+    return `  <article class = "menu">
     <div class="item-image">
       <img class="ui medium circular image" src=${item.image}>
     </div>
@@ -197,18 +210,31 @@ $(() => {
     });
   };
   loadMenu();
+
+
+  $("#submit-order").click(function () {
+    event.preventDefault();
+
+
+  });
+
+  const sendOrderToDb = function (obj) {
+    console.log('Order AJAX hit: ', obj)
+    $.ajax({
+      url: '/api/menu',
+      method: "POST",
+      data: obj
+    })
+      .then(response => {
+        console.log('after Ajax post: ', response.data);
+      });
+  }
+  sendOrderToDb(obj);
+
+
+
 })
 
 
 
-const sendOrderToDb = function () {
-  $.ajax({
-    url: '/api/menu',
-    method: "POST",
-    data: obj
-  })
-    .then(response => {
-      console.log('after Ajax post: ', response.data);
-    });
-}
-//sendOrderToDb();
+
