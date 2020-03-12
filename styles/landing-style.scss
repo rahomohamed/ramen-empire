@@ -208,8 +208,9 @@ margin: 25px;
   position: fixed;
   right: 25px;
   width: 30%;
-  display: none;
-  // remove this
+  visibility: hidden;
+  // display: none;
+  // display or visibility?
 }
 
 .new-item, .pre-tax, .tax-amount, .total-price {
