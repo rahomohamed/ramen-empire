@@ -1,5 +1,5 @@
 INSERT INTO menu_item (name, image, description, price, category_id)
-VALUES('House Special Miso Ramen', 'https://cdn.pixabay.com/photo/2017/04/04/00/36/japanese-food-2199962_1280.jpg', 'Red miso from Japan, Ontario pork broth, 4 x pork belly cha shu, marinated egg, nori, bean sprouts and fried onion with thick noodles.', 20, '1'),
-('Shoyu Ramen', 'https://cdn.pixabay.com/photo/2019/11/01/05/57/ramen-4593402_1280.jpg', 'White shoyu from Japan, Ontario chicken broth, pork belly cha shu, naruto, half a marinated egg,  menma, spinach, white onion and with thin noodles.', 15, '2'),
-('Shio Ramen', 'https://cdn.pixabay.com/photo/2015/03/20/15/13/ramen-682343_1280.jpg', 'Ontario chicken broth, Newfoundland sea salt, pork belly cha shu, nori, naruto, menma, scallions and white onion with thin noodles', 10, '3');
+VALUES('Fried Chicken Meal', 'https://img.grouponcdn.com/deal/2ysg7QwS5tWBNELdphaezWnptbet/2y-792x475/v1/c700x420.jpg', 'marinated in Popeyes spicy chicken marinade, then hand-battered and breaded in our uniquely Southern crispy coating.', 12, '1'),
+('Chicken Sandwich', 'https://shawglobalnews.files.wordpress.com/2019/09/popeyes-chicken-e1567525805155.jpg?quality=70&strip=all', 'Crispy chicken marinated with onion, garlic, red and black peppers and served on an artisan bun with lettuce, tomatoes and a creamy mayo.', 11, '2'),
+('Chicken Tender Meal', 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imSokNwqhfdk/v1/1000x-1.jpg', 'Handcrafted Spicy Tenders that pack a Louisiana punch in every bite. Round it out with a hot buttery Biscuit and one of our Signature Sides.', 13, '3');
 
