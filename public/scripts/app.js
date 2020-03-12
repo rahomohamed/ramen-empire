@@ -35,6 +35,11 @@ $(() => {
   };
 
 
+
+
+
+
+
   // renders menu items
   const renderMenu = function(items) {
     for (let item of items) {

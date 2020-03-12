@@ -157,13 +157,13 @@ ul.headerNav li a:hover {
   // width: 250px;
   // border-radius: 50%;
   background-color: green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 75%;
+  // width: 75%;
 }
 
 h2 {
@@ -175,14 +175,26 @@ h2 {
 #ramen {
   // background-image: url("../images/kitchen.jpeg");
   background-image: url("../images/bowl.jpeg");
+  width: 75%;
 }
 
+#ramen.active {
+  width: 75%;
+}
 
+// #menuShow {
+//   visibility: hidden;
+// }
+
+#ramen .active h2 #menuShow {
+  font-size: 100px;
+}
 
 
 
 // form and menu-item merged with menu-selection to become #menu-container
 .menu-container {
+  margin-top: 50px;
   align-items: center;
   background-color: rgba(255,255,255,0.5);
   border: black solid 1px;
