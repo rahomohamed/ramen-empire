@@ -33,7 +33,7 @@ $(() => {
       $itemContainer.find(".addCart").addClass("disabled");
 
       // variable declarations for tax and total calculations
-      const addItem = menuItems[itemId].name;
+      const addItem = menuItems[itemId].id;
       // order[addItem] = { qty: 1, name: addItem };
       order[addItem] = { qty: 1};
       const id = Number(itemId) - 1;
