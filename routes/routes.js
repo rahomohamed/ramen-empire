@@ -8,26 +8,24 @@ const twilioFunction = (data) => {
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    //SELECT menu detail from db
+    //render landing page with menu items
     res.render("landing_page");
   });
+
+  //Submit button on landing page makes POST request to "/api/orders" (/orders.js)
+  //POST request has contents of order calculator
+  //"/api/orders" handles database INSERTS, the redirects to "/payment"
 
   router.get("/payment", (req, res) => {
 
     //SELECT order details from db to display as summary
-
-    //then, renders /payment with order summary and payment form
+    //then, renders "/payment" with order summary and payment form
     res.render("payment");
   });
 
-  router.post("/payment", (req, res) => {
 
-    console.log('BODY: ', req.body)
 
-    //SELECT order items & quantities, save to ONE STRING (for SMS)
-    //Twilio logic goes here
-
-  res.redirect("/confirmation");
-  });
 
   router.get("/confirmation", (req, res) => {
     console.log('BODY: ', req.body)
@@ -40,22 +38,19 @@ module.exports = (db) => {
 
 
 
+  ///THIS ROUTE SHOULDN"T BE NECESSARY
   router.post("/confirmation", (req, res) => {
     console.log('BODY: ', req.body)
 
     // save data to ... tab le
     // const data = req.body...
     const address = req.body.address
-
     // db.query(`INSERT INTO address (address) VALUES ($1), [address];`)
-
     //   .then(res => {
     //     twilioFunction(data);
     //     res.redirect("/confirmation");
     //   })
-
     res.send(address);
-
   });
 
   return router;
