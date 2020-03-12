@@ -1,5 +1,3 @@
-// require("dotenv").config();
-// const GOOGLE_API = process.env.GOOGLE_API;
 $(document).ready(function() {
   const replaceFunction = entry => {
     return entry.replace(/ /g, "+");
