@@ -28,7 +28,7 @@ $(() => {
       <img class="ui medium circular image" src=${item.image}>
     </div>
     <h3>${item.name}</h3>
-    <h4 class="ui dividing header">${item.price}</h4>
+    <h4 class="ui dividing header">$${item.price}.00</h4>
     <button class="addCart ui blue button" tabindex="0">Add to cart</button>
     <h4>${item.description}</h4>
     </article>`;
@@ -59,28 +59,28 @@ $(() => {
 
 
       // calculations
-      let fried;
-      if (order["Fried Chicken Meal"]) {
-        fried = ((order["Fried Chicken Meal"].qty * 12))
+      let miso;
+      if (order["House Special Miso Ramen"]) {
+        miso = ((order["House Special Miso Ramen"].qty * 20.00))
       } else {
-        fried = 0
+        miso = 0
       };
 
-      let sandwich;
-      if (order["Chicken Sandwich"]) {
-        sandwich = ((order["Chicken Sandwich"].qty * 11))
+      let shoyu;
+      if (order["Shoyu Ramen"]) {
+        shoyu = ((order["Shoyu Ramen"].qty * 15.00))
       } else {
-        sandwich = 0
+        shoyu = 0
       };
 
-      let tender;
-      if (order["Chicken Tender Meal"]) {
-        tender = ((order["Chicken Tender Meal"].qty * 13))
+      let shio;
+      if (order["Shio Ramen"]) {
+        shio = ((order["Shio Ramen"].qty * 10.00))
       } else {
-        tender = 0
+        shio = 0
       };
 
-      const preTax = fried + sandwich + tender
+      const preTax = miso + shoyu + shio
       const tax = (preTax * 0.13).toFixed(2)
       const grandTotal = (preTax * 1.13).toFixed(2)
 
@@ -93,7 +93,7 @@ $(() => {
       );
 
       // calculations are done above
-      $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+      $(".pre-tax").text(`Total Before Tax: $${preTax}.00`);
       $(".tax-amount").text(`13% HST: $${tax}`);
       $(".total-price").text(`Total Amount: $${grandTotal}`);
       console.log(order)
@@ -110,33 +110,33 @@ $(() => {
         $(`#t-${classId}`).text(`${order[item].qty} X ${addItem}`);
 
         // calculations
-        let fried;
-        if (order["Fried Chicken Meal"]) {
-          fried = ((order["Fried Chicken Meal"].qty * 12))
+        let miso;
+        if (order["House Special Miso Ramen"]) {
+          miso = ((order["House Special Miso Ramen"].qty * 20.00))
         } else {
-          fried = 0
+          miso = 0
         };
 
-        let sandwich;
-        if (order["Chicken Sandwich"]) {
-          sandwich = ((order["Chicken Sandwich"].qty * 11))
+        let shoyu;
+        if (order["Shoyu Ramen"]) {
+          shoyu = ((order["Shoyu Ramen"].qty * 15.00))
         } else {
-          sandwich = 0
+          shoyu = 0
         };
 
-        let tender;
-        if (order["Chicken Tender Meal"]) {
-          tender = ((order["Chicken Tender Meal"].qty * 13))
+        let shio;
+        if (order["Shio Ramen"]) {
+          shio = ((order["Shio Ramen"].qty * 10.00))
         } else {
-          tender = 0
+          shio = 0
         };
 
-        const preTax = fried + sandwich + tender
+        const preTax = miso + shoyu + shio
         const tax = (preTax * 0.13).toFixed(2)
         const grandTotal = (preTax * 1.13).toFixed(2)
 
         // calculations are done above
-        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+        $(".pre-tax").text(`Total Before Tax: $${preTax}.00`);
         $(".tax-amount").text(`13% HST: $${tax}`);
         $(".total-price").text(`Total Amount: $${grandTotal}`);
         console.log(order)
@@ -163,33 +163,33 @@ $(() => {
           `${order[item].qty} X ${addItem}`
         );
         // calculations
-        let fried;
-        if (order["Fried Chicken Meal"]) {
-          fried = ((order["Fried Chicken Meal"].qty * 12))
+        let miso;
+        if (order["House Special Miso Ramen"]) {
+          miso = ((order["House Special Miso Ramen"].qty * 20.00))
         } else {
-          fried = 0
+          miso = 0
         };
 
-        let sandwich;
-        if (order["Chicken Sandwich"]) {
-          sandwich = ((order["Chicken Sandwich"].qty * 11))
+        let shoyu;
+        if (order["Shoyu Ramen"]) {
+          shoyu = ((order["Shoyu Ramen"].qty * 15.00))
         } else {
-          sandwich = 0
+          shoyu = 0
         };
 
-        let tender;
-        if (order["Chicken Tender Meal"]) {
-          tender = ((order["Chicken Tender Meal"].qty * 13))
+        let shio;
+        if (order["Shio Ramen"]) {
+          shio = ((order["Shio Ramen"].qty * 10.00))
         } else {
-          tender = 0
+          shio = 0
         };
 
-        const preTax = fried + sandwich + tender
+        const preTax = miso + shoyu + shio
         const tax = (preTax * 0.13).toFixed(2)
         const grandTotal = (preTax * 1.13).toFixed(2)
 
         // calculations are done above
-        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+        $(".pre-tax").text(`Total Before Tax: $${preTax}.00`);
         $(".tax-amount").text(`13% HST: $${tax}`);
         $(".total-price").text(`Total Amount: $${grandTotal}`);
         console.log(order)

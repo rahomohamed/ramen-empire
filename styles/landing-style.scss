@@ -111,6 +111,37 @@ ul.headerNav li a:hover {
   color: #4183c4
 }
 
+// #scrollToMenu {
+  // justify-content: center;
+  // position: relative;
+  // position: fixed;
+  // top: 90%;
+  // left: 50%;
+  // margin-top: -103px;
+  // margin-left: -150px;
+// }
+
+// @keyframes bounce {
+//   0% { transform: translateY(2.5px); }
+//   100% { transform: translateY(-2.5px); }
+// }
+// #scrollToMenu img {
+//   position: absolute;
+//   bottom: -17.5px;
+//   animation: bounce 0.1s;
+//   animation-direction: alternate;
+//   animation-iteration-count: infinite;
+// }
+// #scrollToMenu img:hover {
+//   box-shadow:
+//     0 0 3.75px 1.875px #fff,
+//     0 0 6.25px 3.75px #f0f,
+//     0 0 8.75px 5.625px #0ff;
+// }
+
+
+
+
 .menuMain .wrapper {
   display: flex;
   flex-direction: column;
@@ -122,9 +153,9 @@ ul.headerNav li a:hover {
 }
 
 .title {
-  height: 420px;
-  width: 420px;
-  border-radius: 50%;
+  // height: 250px;
+  // width: 250px;
+  // border-radius: 50%;
   background-color: green;
   display: flex;
   align-items: center;
@@ -132,18 +163,23 @@ ul.headerNav li a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
+  width: 75%;
 }
 
 h2 {
   color: darkgreen;
   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 #ramen {
+  // background-image: url("../images/kitchen.jpeg");
   background-image: url("../images/bowl.jpeg");
 }
+
+
+
+
 
 // form and menu-item merged with menu-selection to become #menu-container
 .menu-container {
@@ -152,15 +188,35 @@ h2 {
   border: black solid 1px;
   border-radius: 25px;
   display: flex;
-  // flex-direction: column;
-  flex-direction: row;
+  flex-direction: column;
+  // flex-direction: row;
   // padding: 25px;
   // width: 33%;
-  // width: 75%;
+  width: 75%;
 }
 
+// article h3 {
+//   margin: 10px 0;
+// }
+
+// h4.ui.dividing.header {
+//   margin: 10px 0;
+// }
+
+// article h4 {
+//   margin: 0;
+// }
+
 .menu{
-margin: 25px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // justify-content: space-between;
+  width: 100%;
+  // margin: 12.5px;
+  // padding: 12.5px;
 }
 
 .item-image {
@@ -204,10 +260,10 @@ margin: 25px;
   bottom: 79px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 10px;
   position: fixed;
-  right: 25px;
-  width: 30%;
+  right: 80px;
+  width: 17.5%;
   visibility: hidden;
   // display: none;
   // display or visibility?
