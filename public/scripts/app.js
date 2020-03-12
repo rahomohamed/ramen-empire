@@ -30,28 +30,13 @@ $(() => {
       const $itemContainer = $(this).parent();
       const itemId = $itemContainer.attr("data-id");
       const itemInfo = menuItems[itemId];
-      console.log("-------------------", itemInfo);
       $itemContainer.find(".addCart").addClass("disabled");
 
       // variable declarations for tax and total calculations
       const addItem = menuItems[itemId].name;
-
-      // comment out since math not needed
-      // const addPreTax = parseFloat(menuItems[itemId].price);
-      // const addTax = (addPreTax * 0.13).toFixed(2);
-      // const addTotal = (addPreTax * 1.13).toFixed(2);
-
       order[addItem] = { qty: 1, name: addItem };
-      // order = {
-      // name: quantity
-      // } ===> order[name].qty -> quantity
-      // order = [{}, {}]
       const id = Number(itemId) - 1;
       const classId = "class" + id;
-      // console.log(order);
-
-
-
 
 
       // calculations
@@ -80,14 +65,6 @@ $(() => {
       const tax = (preTax * 0.13).toFixed(2)
       const grandTotal = (preTax * 1.13).toFixed(2)
 
-
-
-
-
-
-
-
-
       // buttons are added and taxes/total price for the menu item appear in the summary/calculator form
 
       $(".new-item").append(
@@ -105,7 +82,6 @@ $(() => {
       $(`.itm-${classId}`).click(function(event) {
         event.preventDefault();
 
-        // console.log(order);
         const n = Number(classId.split("class")[1]);
         const item = menuItems[n + 1].name;
         order[item].qty++;
@@ -129,7 +105,7 @@ $(() => {
 
         let tender;
         if (order["Chicken Tender Meal"]) {
-          tender = ((order["Fried Chicken Meal"].qty * 13))
+          tender = ((order["Chicken Tender Meal"].qty * 13))
         } else {
           tender = 0
         };
@@ -137,16 +113,6 @@ $(() => {
         const preTax = fried + sandwich + tender
         const tax = (preTax * 0.13).toFixed(2)
         const grandTotal = (preTax * 1.13).toFixed(2)
-
-
-
-        //comment out since math not needed
-        // let j = addPreTax;
-        // let i = parseInt($(`.counter-${classId}`).text());
-
-        // this is raho's code
-        // $(".new-item").html(`<button class="add ui blue button itm-${classId}" tabindex="0">+</button> <button class="remove ui red button ${classId}" tabindex="0">-</button> <span class="counter ${classId}">${tempO.qty} X ${(tempO.name)}</span> <br> <br>`);
-
 
         // calculations are done above
         $(".pre-tax").text(`Total Before Tax: $${preTax}`);
@@ -158,14 +124,7 @@ $(() => {
       // removes items from cart (which have already been added), and updates the tax and total price
       $(`.remove-itm-${classId}`).click(function() {
         event.preventDefault();
-        // console.log(order)
-
         let i = parseInt($(`.counter-${classId}`).text());
-
-        //comment out for time being
-        // console.log("I IS", i);
-
-
         if (i === 1) {
           i = 0;
           $(".addCart").removeClass("disabled");
@@ -173,17 +132,13 @@ $(() => {
         } else {
           i--;
         }
-
         const n = Number(classId.split("class")[1]);
         const item = menuItems[n + 1].name;
         order[item].qty--;
-
         // removes the first occurence of the menu item (we need to make the item row dissappear when you get to 0)
         $(`.${classId}, .counter-${classId}`).text(
           `${order[item].qty} X ${order[item].name}`
         );
-
-
         // calculations
         let fried;
         if (order["Fried Chicken Meal"]) {
@@ -201,7 +156,7 @@ $(() => {
 
         let tender;
         if (order["Chicken Tender Meal"]) {
-          tender = ((order["Fried Chicken Meal"].qty * 13))
+          tender = ((order["Chicken Tender Meal"].qty * 13))
         } else {
           tender = 0
         };
@@ -210,12 +165,10 @@ $(() => {
         const tax = (preTax * 0.13).toFixed(2)
         const grandTotal = (preTax * 1.13).toFixed(2)
 
-
         // calculations are done above
         $(".pre-tax").text(`Total Before Tax: $${preTax}`);
         $(".tax-amount").text(`13% HST: $${tax}`);
         $(".total-price").text(`Total Amount: $${grandTotal}`);
-
 
         if (order[item].qty <= 0) {
           delete order[item];
