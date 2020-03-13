@@ -35,7 +35,6 @@ $(() => {
     let preTax = 0;
     order.forEach(order=> {
       preTax = preTax +  Number((order.price * order.quantity).toFixed(2));
-      console.log("Order", order);
     });
     return preTax;
   }
@@ -66,13 +65,10 @@ $(() => {
     const menuItem = menuItems[item.id];
     // when add to cart button is clicked
     const menuItemEl = $(`.menu [data-id=${item.id}]`);
-    console.log(menuItemEl + "menuitem +menu");
     menuItemEl.find('.addCart').on('click', function() {
       $(this).addClass("disabled");
       handleAddToCart(item);
       calculatePrice(item);
-      console.log("Clicked");
-      console.log("ID", item.id);
       showPrice(preTax, tax, grandTotal);
     });
   };
@@ -80,8 +76,6 @@ $(() => {
   const updateCounter = (item) => {
     const orderItemEl = $(`#${item.id}`);
     let counter = orderItemEl.find(`.counter-${ item.id }`);
-    console.log(counter);
-    console.log(item.quantity);
     $(counter).text(item.quantity);
   };
   // increment function for + button
@@ -100,9 +94,7 @@ $(() => {
     const orderItemEl = $(`#${orderItemId}`);
     orderItemEl.find('.add').on('click', function() {
       increment(orderItemId);
-      console.log("Increment happened");
       calculatePrice(orderItem);
-      console.log(grandTotal + "HELLO");
       showPrice(preTax, tax, grandTotal);
     });
   };
@@ -115,11 +107,9 @@ $(() => {
       }
       if (item.quantity === 0) {
         const menuItemEl = $(`.menu [data-id=${item.id}]`);
-        console.log(menuItemEl);
         $(menuItemEl).find(".addCart").removeClass("disabled");
         const orderItemEl = $(`#${item.id}`);
         orderItemEl.remove();
-        console.log(orderItemEl + "YOOO");
       }
     });
   };
@@ -130,9 +120,7 @@ $(() => {
     const orderItemEl = $(`#${orderItemId}`);
     orderItemEl.find('.remove').on('click', function() {
       decrement(orderItemId);
-      console.log("decrement happened");
       calculatePrice(orderItem);
-      console.log(grandTotal + "HELLO");
       showPrice(preTax, tax, grandTotal);
     });
   };
@@ -146,7 +134,6 @@ $(() => {
       'quantity': 1
     };
     order.push(orderItem);
-    console.log(order);
     $(".new-item").append(createOrderItem(orderItem));
     incrementHandler(orderItem);
     decrementHandler(orderItem);
@@ -174,7 +161,6 @@ $(() => {
   loadMenu();
 
   const sendOrderToLocalStorage = function(orders) {
-    console.log('Order AJAX hit: ', order);
     $.ajax({
       url: '/api/order',
       method: "POST",
