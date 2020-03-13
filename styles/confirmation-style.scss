@@ -90,12 +90,17 @@ ul.headerNav li a:hover, .social a:hover {
 	color: #4183c4
 }
 
-.payment-details {
-	background-image: url(/fried-chicken.jpg);
+// .payment-details {
+// 	background-image: url(/fried-chicken.jpg);
+//   background-size: cover;
+//   height: 100vh;
+//   padding: 50px 0;
+// }
+main {
+  background-image: url("../images/chef.jpeg");
   background-size: cover;
-  height: 100vh;
-  padding: 50px 0;
 }
+
 
 /* to be filled in
 .order-summary {

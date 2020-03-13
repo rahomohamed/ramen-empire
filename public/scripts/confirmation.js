@@ -40,9 +40,7 @@ $(document).ready(function() {
   }
 
   function createConfirmation() {
-      return `<h4>Your confirmatuion number is: ${generateRandomString()}</h4>
-    <p>Your order will be on the way shortly!</p>
-    <h4>It should arrive in approximately 10 minutes</h4>`
+      return `<h4>Your confirmation number is: ${generateRandomString()}</h4>`
     };
 
     function confirmationPage() {
