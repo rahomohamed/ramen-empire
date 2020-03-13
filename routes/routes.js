@@ -36,7 +36,6 @@ module.exports = (db) => {
     res.render("confirmation");
   });
 
-
   ///THIS ROUTE SHOULDN"T BE NECESSARY:
   router.post("/confirmation", (req, res) => {
     console.log('BODY: ', req.body)
