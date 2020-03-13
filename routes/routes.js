@@ -8,6 +8,7 @@ const twilioFunction = (data) => {
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    console.log(req.body)
     //SELECT menu detail from db
     //render landing page with menu items
     res.render("landing_page");
@@ -15,9 +16,10 @@ module.exports = (db) => {
 
   //Submit button on landing page makes POST request to "/api/orders" (/orders.js)
   //POST request has contents of order calculator
-  //"/api/orders" handles database INSERTS, the redirects to "/payment"
+  //"/api/order" handles database INSERTS, the redirects to "/payment"
 
   router.get("/payment", (req, res) => {
+    console.log(req.body)
 
     //SELECT order details from db to display as summary
     //then, renders "/payment" with order summary and payment form

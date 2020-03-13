@@ -42,7 +42,7 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const routes = require("./routes/routes");
 const addressRoutes = require("./routes/address");
-const ordersRoutes = require("./routes/orders");
+const orderRoutes = require("./routes/order");
 const twilioRoutes = require("./routes/twilio");
 
 
@@ -52,7 +52,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/menu", menuRoutes(db));
 app.use("/api/address", addressRoutes(db));
-app.use("/api/orders", ordersRoutes(db));
+app.use("/api/order", orderRoutes(db));
 app.use("/api/twilio", twilioRoutes(db));
 app.use("/", routes(db));
 // Note: mount other resources here, using the same pattern above
