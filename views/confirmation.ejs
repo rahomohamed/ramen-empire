@@ -68,6 +68,7 @@
           <button id="walking">Walking</button>
           <button id="bicycling">Cycling</button>
         </div>
+        <div id="transportationMethod"></div>
 
         <div id="map" style="height:400px;width:400px"></div>
         <div id="msg"></div>
@@ -94,8 +95,11 @@
     <!-- THE SCRIPT FOR THE GOOGLE MAP API -->
     <script>
       function getTransportationMethod() {
-        const method = localStorage.getItem("transportationMethod");
-        return method ? method : "DRIVING";
+        let method = localStorage.getItem("transportationMethod");
+        if (!method) {
+          method = "DRIVING";
+        }
+        return method;
       }
 
       var formattedAddressLat;
@@ -166,7 +170,6 @@
               -79.40119279999999
             );
 
-            console.log("formatted", formattedAddressLat, formattedAddressLong);
             const clientAddress = createGoogleMapsPosition(
               formattedAddressLat,
               formattedAddressLong
@@ -187,10 +190,12 @@
             directionsRenderer.setMap(map); // Existing map object displays directions
 
             // Create route from existing points used for markers
+            const method = getTransportationMethod();
+            document.getElementById("transportationMethod").innerText = method;
             const route = {
               origin: lightHouse,
               destination: clientAddress,
-              travelMode: getTransportationMethod()
+              travelMode: method
             };
 
             // To use directions in the Maps JavaScript API, create an object of type DirectionsService and call DirectionsService.route() to initiate a request to the Directions service, passing it a DirectionsRequest object literal containing the input terms and a callback method to execute upon receipt of the response.
@@ -208,7 +213,7 @@
                   return;
                 } else {
                   document.getElementById("msg").innerHTML =
-                    " Driving distance is " +
+                    " Distance is " +
                     directionsData.distance.text +
                     " (" +
                     directionsData.duration.text +

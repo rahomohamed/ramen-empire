@@ -1,13 +1,13 @@
 $(document).ready(function() {
   function setTransportationMethod(method) {
-    const method = localStorage.setItem("transportationMethod", method);
+    localStorage.setItem("transportationMethod", method);
   }
 
   function reloadPage() {
-    window.reload();
+    location.reload();
   }
 
-  console.log("my script has loaded");
+  console.log(localStorage.getItem("transportationMethod"));
 
   $("#walking").click(event => {
     event.preventDefault();
