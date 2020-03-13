@@ -32,12 +32,16 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+    <!-- Link for Axios to make Get Request for Google Geocode API -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       var googleApiKey = "<%= process.env.GOOGLE_API %>";
     </script>
     <script text="text/javascript" src="/scripts/confirmation.js"></script>
   </head>
-
+  <div class="container">
+    <div id="formatted-address"></div>
+  </div>
   <body>
     <div class="headerTop">
       <div class="wrapper">
@@ -59,6 +63,14 @@
             <h2>Order Summary</h2>
           </div>
         </div>
+        <div style="display:flex">
+          <button id="driving">Driving</button>
+          <button id="walking">Walking</button>
+          <button id="bicycling">Cycling</button>
+        </div>
+
+        <div id="map" style="height:400px;width:400px"></div>
+        <div id="msg"></div>
       </section>
       <section class="google-api"></section>
     </main>
@@ -79,5 +91,142 @@
         </div>
       </div>
     </footer>
+    <!-- THE SCRIPT FOR THE GOOGLE MAP API -->
+    <script>
+      function getTransportationMethod() {
+        const method = localStorage.getItem("transportationMethod");
+        return method ? method : "DRIVING";
+      }
+
+      var formattedAddressLat;
+      var formattedAddressLong;
+      // GETS THE ADDRESS FROM DATABASE
+      function getCoordinates() {
+        const promise = new Promise((resolve, reject) => {
+          $.ajax({
+            method: "GET",
+            url: "/api/address"
+          }).done(res => {
+            // THE LHL ADDRESS AS RESTO ADDRESS
+            const newAddress = res[1].address_name;
+
+            //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route STRETCH
+            geocode();
+            function geocode() {
+              axios
+                .get("https://maps.googleapis.com/maps/api/geocode/json?", {
+                  params: {
+                    address: newAddress,
+                    key: googleApiKey
+                  }
+                })
+
+                //Gets the latitude and longitude based on the New Address
+                .then(function(response) {
+                  //Formatted address
+                  //Latitude
+                  formattedAddressLat =
+                    response.data.results[0].geometry.location.lat;
+                  //Longitude
+                  formattedAddressLong =
+                    response.data.results[0].geometry.location.lng;
+
+                  resolve({ formattedAddressLat, formattedAddressLong });
+                })
+                .catch(err => {
+                  console.warn(err);
+                });
+            }
+          });
+        });
+        return promise;
+      }
+
+      var map;
+      // initMap();
+      function createGoogleMapsPosition(lat, long) {
+        return new google.maps.LatLng(lat, long);
+      }
+
+      function initMap() {
+        // The map, centered on LHL, it is a callback in the src code
+
+        const coordinatesPromise = getCoordinates().then(
+          ({ formattedAddressLat, formattedAddressLong }) => {
+            const center = createGoogleMapsPosition(
+              43.6444883,
+              -79.40119279999999
+            );
+
+            const options = { zoom: 15, scaleControl: true, center: center };
+            map = new google.maps.Map(document.getElementById("map"), options);
+            // Locations of landmarks
+            const lightHouse = createGoogleMapsPosition(
+              43.6444883,
+              -79.40119279999999
+            );
+
+            console.log("formatted", formattedAddressLat, formattedAddressLong);
+            const clientAddress = createGoogleMapsPosition(
+              formattedAddressLat,
+              formattedAddressLong
+            );
+
+            // The markers for The LHL and The Client Address
+            var mk1 = new google.maps.Marker({
+              position: lightHouse,
+              map: map
+            });
+            var mk2 = new google.maps.Marker({
+              position: clientAddress,
+              map: map
+            });
+
+            let directionsService = new google.maps.DirectionsService(); // This object communicates with Google Maps API Directions Service which receives direction requests and returns an efficient path- travel time is primary factor which is optimized, but other factors like distance, number of turns, etc. taken in account
+            let directionsRenderer = new google.maps.DirectionsRenderer(); // This renders the results
+            directionsRenderer.setMap(map); // Existing map object displays directions
+
+            // Create route from existing points used for markers
+            const route = {
+              origin: lightHouse,
+              destination: clientAddress,
+              travelMode: getTransportationMethod()
+            };
+
+            // To use directions in the Maps JavaScript API, create an object of type DirectionsService and call DirectionsService.route() to initiate a request to the Directions service, passing it a DirectionsRequest object literal containing the input terms and a callback method to execute upon receipt of the response.
+            directionsService.route(route, function(response, status) {
+              // anonymous function to capture directions
+              if (status !== "OK") {
+                console.log("failed");
+                window.alert("Directions request failed due to " + status);
+                return;
+              } else {
+                directionsRenderer.setDirections(response); // Add route to the map
+                var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+                if (!directionsData) {
+                  window.alert("Directions request failed");
+                  return;
+                } else {
+                  document.getElementById("msg").innerHTML =
+                    " Driving distance is " +
+                    directionsData.distance.text +
+                    " (" +
+                    directionsData.duration.text +
+                    ").";
+                }
+              }
+            });
+          }
+        );
+      }
+    </script>
+    <script>
+      const script = document.createElement("script");
+      script.id = "mapAPI";
+      script.defer = true;
+      script.async = true;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
