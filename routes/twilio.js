@@ -42,14 +42,12 @@ module.exports = db => {
 
 //Helper Function to send text reminding customer to leave CAN BE TEXT OR CALL
 const consfirmTimeUntilDeparture = function(reminderTime) {
-
   client.messages.create({
     to: CUSTOMER_PHONE_NUMBER,
     from: TWILIO_PHONE_NUMBER,
     body: `You should leave to pick up your order in ${reminderTime} minutes!`
   }).then((message)=> console.log('from customer ETA .THEN ', message.body));
 };
-
 
 // Helper Function to send reminder SMS for customer to leave when timer is up:
 const timedReminderToLeave = function(reminderTime) {
@@ -63,7 +61,6 @@ const timedReminderToLeave = function(reminderTime) {
     }).then((message)=> console.log('REMINDER TO LEAVE SENT: ', message.body));
   }, reminderTime * 60000); // multiplies time until departure in minutes by 60000 to convert to milliseconds
 };
-
 
 //LISTEN FOR SMS  **DO NOT CHANGE THIS ROUTE NAME** it is configured as the webhook in Twilio account
 router.post('/inbound', (req, res) => {
