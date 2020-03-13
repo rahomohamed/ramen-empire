@@ -26,7 +26,6 @@
     "pg-native": "^3.0.0",
     "semantic-ui": "^2.4.2",
     "twilio": "^3.33.2"
-
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
