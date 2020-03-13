@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>RAMEN EMPIRE - YOUR ORDER IS CONFIRMED!</title>
+  <title>RAMEN EMPIRE - CONFIRMATION</title>
   <!-- Disable viewport zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Links and scripts for Semantic UI -->
@@ -31,39 +31,44 @@
 </div>
 
 <body>
-  <div class="headerTop">
-    <div class="wrapper">
-      <a class="logo" href="/">RAMEN EMPIRE</a>
-      <nav>
-        <ul class="headerNav">
-          <li><a href="about.html">about</a></li>
-          <li><a href="contact.html">contact</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="register.html">Register</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <main>
-    <section class="payment-details">
+  <header>
+    <div class="headerTop">
       <div class="wrapper">
-        <form id="confirmation">
-
-        </form>
-        <h2>Order Summary</h2>
+        <img src="../images/ramen-empire.png">
+        <a class="logo" href="/">RAMEN EMPIRE</a>
+        <nav>
+          <ul class="headerNav">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      </div>
-      <div style="display:flex">
+    </div>
+    <!-- <div id='scrollToMenu'>
+        <img src='../images/kitchen2.jpeg'>
+      </div> -->
+  </header>
+  <main>
+    <div class="map">
+    <section class="payment-details">
+      <div class="wrapper2">
+<h2 id="confirmation"></h2>
+      <!-- <div style="display:flex"> -->
+        <div class="buttonBox">
         <button id="driving">Driving</button>
         <button id="walking">Walking</button>
         <button id="bicycling">Cycling</button>
-      </div>
+</div>
+
+
       <div id="transportationMethod"></div>
 
-      <div id="map" style="height:400px;width:400px"></div>
+      <div id="map" style="height:400px;width:600px"></div>
       <div id="msg"></div>
+      <section class="google-api"></section>
     </section>
-    <section class="google-api"></section>
+    </div>
+
   </main>
   <footer>
     <div class="wrapper">

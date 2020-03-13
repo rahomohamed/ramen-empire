@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>FCR - PAYMENT</title>
+    <title>RAMEN EMPIRE - PAYMENT</title>
     <!-- Disable viewport zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Links and scripts for Semantic UI -->
@@ -41,36 +41,32 @@
     <script type="text/javascript" src="./scripts/payment.js"></script>
   </head>
   <body>
-
-
-
+  <header>
     <div class="headerTop">
       <div class="wrapper">
+        <img src="../images/ramen-empire.png">
         <a class="logo" href="/">RAMEN EMPIRE</a>
         <nav>
           <ul class="headerNav">
-            <li><a href="about.html">about</a></li>
-            <li><a href="contact.html">contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
     </div>
-
-
-
+    <!-- <div id='scrollToMenu'>
+        <img src='../images/kitchen2.jpeg'>
+      </div> -->
+  </header>
     <main>
       <section class="payment-details">
         <div class="wrapper">
           <form class="ui form" method="POST" action="/api/twilio">
-            <span>You've ordered: </span>
-            <span id="summary"></span>
+            <h2>You're almost there!</h2>
             <br>
-            <span>You're almost there!</span>
-            <br>
-            <span>We just need your information and payment details!</span>
+            <h3>We just need your information and payment details!</h3>
 
+            <div class="box">
             <h4 class="ui dividing header">Customer Information</h4>
             <div class="field">
               <label>Name</label>
@@ -111,6 +107,10 @@
                 placeholder="Phone Number"
               />
             </div>
+            </div>
+
+
+            <div class="box">
             <h4 class="ui dividing header">Billing Information</h4>
             <div class="field">
               <label>Credit Card Type</label>
@@ -182,11 +182,14 @@
             <button id="submit-button" class="ui button" tabindex="0">
               Submit Order
             </button>
+            </div>
           </form>
           <!-- order summary should render here -->
           <form id = "order-summary">
             <article id=order>
-
+              <h2>Order Summary</h2>
+              <br>
+              <br>
             </article>
             <article id=payment>
 

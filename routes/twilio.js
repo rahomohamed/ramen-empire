@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
     client.messages.create({
       to: RESTAURANT_PHONE_NUMBER,
       from: TWILIO_PHONE_NUMBER,
-      body: `New order: ${req.body.address}.\nPlease respond with ETA as numerical value in MINUTES.`
+      body: `New order: 2X Shoyu Ramen.\nPlease respond with ETA as numerical value in MINUTES.`
     })
     .then(function(message) {
      // console.log('this is the then message: ', message);

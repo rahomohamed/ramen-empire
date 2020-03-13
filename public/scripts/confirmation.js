@@ -40,7 +40,7 @@ $(document).ready(function() {
   }
 
   function createConfirmation() {
-      return `<h4>Your confirmation number is: ${generateRandomString()}</h4>`
+      return `<h3>Your confirmation number is: ${generateRandomString()}</h3>`
     };
 
     function confirmationPage() {
