@@ -50,15 +50,13 @@ a, .logo {
 li {
 	list-style-type: none;
 }
+
 header {
   background-image: url("../images/ramen-hero.jpeg");
+  background-position:center;
+  background-repeat:no-repeat;
   background-size: cover;
   height: 100vh;
-}
-
-.menuMain {
-  background-image: url("../images/kitchen.jpeg");
-  background-size: cover;
 }
 
 .wrapper {
@@ -111,46 +109,20 @@ ul.headerNav li a:hover {
   color: #4183c4
 }
 
-// #scrollToMenu {
-  // justify-content: center;
-  // position: relative;
-  // position: fixed;
-  // top: 90%;
-  // left: 50%;
-  // margin-top: -103px;
-  // margin-left: -150px;
-// }
-
-// @keyframes bounce {
-//   0% { transform: translateY(2.5px); }
-//   100% { transform: translateY(-2.5px); }
-// }
-// #scrollToMenu img {
-//   position: absolute;
-//   bottom: -17.5px;
-//   animation: bounce 0.1s;
-//   animation-direction: alternate;
-//   animation-iteration-count: infinite;
-// }
-// #scrollToMenu img:hover {
-//   box-shadow:
-//     0 0 3.75px 1.875px #fff,
-//     0 0 6.25px 3.75px #f0f,
-//     0 0 8.75px 5.625px #0ff;
-// }
-
-
-
-
-.menuMain .wrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 200px 0;
-  align-items: center;
-  justify-content: center;
-
+main {
+  background-image: url("../images/kitchen.jpeg");
+  background-size: cover;
 }
+
+// .menuMain .wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   padding: 200px 0;
+//   align-items: center;
+//   justify-content: center;
+
+// }
 
 .title {
   // height: 250px;
@@ -172,28 +144,26 @@ h2 {
   font-size: 35px;
 }
 
-#ramen {
-  // background-image: url("../images/kitchen.jpeg");
-  background-image: url("../images/bowl.jpeg");
-  width: 75%;
-}
-
-#ramen.active {
-  width: 75%;
-}
-
-// #menuShow {
-//   visibility: hidden;
+// #ramen {
+//   background-image: url("../images/bowl.jpeg");
+//   width: 75%;
 // }
 
-#ramen .active h2 #menuShow {
-  font-size: 100px;
-}
+// #ramen.active {
+//   width: 75%;
+// }
 
+// #ramen .active h2 #menuShow {
+//   font-size: 100px;
+// }
+
+.menu-item {
+width: 73.5%;
+}
 
 
 // form and menu-item merged with menu-selection to become #menu-container
-.menu-container {
+#menu-container {
   margin-top: 50px;
   align-items: center;
   background-color: rgba(255,255,255,0.5);
@@ -203,8 +173,12 @@ h2 {
   flex-direction: column;
   // flex-direction: row;
   // padding: 25px;
-  // width: 33%;
-  width: 75%;
+}
+
+article {
+  border-radius: 25px;
+  border: black solid 1px;
+  margin: 5px;
 }
 
 // article h3 {
@@ -276,7 +250,7 @@ h2 {
   position: fixed;
   right: 80px;
   width: 17.5%;
-  visibility: hidden;
+  // visibility: hidden;
   // display: none;
   // display or visibility?
 }
@@ -315,4 +289,15 @@ footer, .social a {
 
 .social a:hover {
 	color: #4183c4
+}
+
+/* Styles for mobile phones with a width of 600px or below */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 20px;
+  }
+
+    .copyright {
+    font-size: 14px;
+  }
 }

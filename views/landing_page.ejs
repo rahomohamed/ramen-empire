@@ -32,10 +32,6 @@
         <a class="logo" href="/">GENERIC RAMEN RESTAURANT</a>
         <nav>
           <ul class="headerNav">
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
           </ul>
         </nav>
       </div>
@@ -44,23 +40,20 @@
       <img src='../images/kitchen2.jpeg'>
     </div> -->
   </header>
-
   <main>
-    <section class= "menuMain">
+    <section class="menu">
+      <h1>MENU</h1>
       <div class="wrapper">
-        <div class="ui accordion">
-          <div id="ramen" class="title">
-            <h2>Click Here For Ramen Menu</h2>
-            <!-- <h2 id="menuShow">Ramen Menu</h2> -->
-          </div>
-          <div class="content">
-            <div class="menu-container"></div>
+        <div class="menu-item">
+          <div class="menu-selection">
+            <form id="menu-container" class="quantity ui form">
+            </form>
           </div>
         </div>
+      </div>
     </section>
   </main>
-  <form class="calculator ui form" method="POST" action="/api/orders">
-<!-- Updated styling, removed sides and desserts. -->
+  <form id="calculator" class="calculator ui form" method="POST" action="/api/order">
     <h4 class="ui dividing header">Order Summary</h4>
     <div class="new-item"></div>
     <div class="pre-tax"></div>
