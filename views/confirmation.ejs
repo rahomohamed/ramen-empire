@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>RAMEN EMPIRE - CONFIRMATION</title>
@@ -29,7 +28,6 @@
 <div class="container">
   <div id="formatted-address"></div>
 </div>
-
 <body>
   <header>
     <div class="headerTop">
@@ -44,31 +42,23 @@
         </nav>
       </div>
     </div>
-    <!-- <div id='scrollToMenu'>
-        <img src='../images/kitchen2.jpeg'>
-      </div> -->
   </header>
   <main>
     <div class="map">
-    <section class="payment-details">
-      <div class="wrapper2">
-<h2 id="confirmation"></h2>
-      <!-- <div style="display:flex"> -->
+      <section class="payment-details">
+        <div class="wrapper2">
+          <h2 id="confirmation"></h2>
         <div class="buttonBox">
-        <button id="driving">Driving</button>
-        <button id="walking">Walking</button>
-        <button id="bicycling">Cycling</button>
-</div>
-
-
+          <button id="driving">Driving</button>
+          <button id="walking">Walking</button>
+          <button id="bicycling">Cycling</button>
+        </div>
       <div id="transportationMethod"></div>
-
       <div id="map" style="height:400px;width:600px"></div>
       <div id="msg"></div>
-      <section class="google-api"></section>
-    </section>
+      <div class="google-api"></div>
+      </section>
     </div>
-
   </main>
   <footer>
     <div class="wrapper">
@@ -91,17 +81,13 @@
       }
       return method;
     }
-
     var formattedAddressLat;
     var formattedAddressLong;
     // GETS THE ADDRESS FROM DATABASE
     function getCoordinates() {
-
       const promise = new Promise((resolve, reject) => {
-
         // THE Client address that is inputted in the address field
         const newAddress = localStorage.getItem("address");
-
         //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route
         geocode();
         function geocode() {
@@ -112,7 +98,6 @@
                 key: googleApiKey
               }
             })
-
             //Gets the latitude and longitude based on the New Address
             .then(function (response) {
               //Formatted address
@@ -122,8 +107,7 @@
               //Longitude
               formattedAddressLong =
                 response.data.results[0].geometry.location.lng;
-
-              resolve({ formattedAddressLat, formattedAddressLong });
+                resolve({ formattedAddressLat, formattedAddressLong });
             })
             .catch(err => {
               console.warn(err);
@@ -132,22 +116,18 @@
       });
       return promise;
     }
-
     var map;
     function createGoogleMapsPosition(lat, long) {
       return new google.maps.LatLng(lat, long);
     }
-
     function initMap() {
       // The map, centered on LHL, it is a callback in the src code
-
       const coordinatesPromise = getCoordinates().then(
         ({ formattedAddressLat, formattedAddressLong }) => {
           const center = createGoogleMapsPosition(
             43.6444883,
             -79.40119279999999
           );
-
           const options = { zoom: 15, scaleControl: true, center: center };
           map = new google.maps.Map(document.getElementById("map"), options);
           // Locations of restaurant/ lhl
@@ -155,13 +135,11 @@
             43.6444883,
             -79.40119279999999
           );
-
           //what the user put in
           const clientAddress = createGoogleMapsPosition(
             formattedAddressLat,
             formattedAddressLong
           );
-
           // The markers for The LHL and The Client Address
           var mk1 = new google.maps.Marker({
             position: lightHouse,
@@ -171,11 +149,9 @@
             position: clientAddress,
             map: map
           });
-
           let directionsService = new google.maps.DirectionsService(); // This object communicates with Google Maps API Directions Service which receives direction requests and returns an efficient path- travel time is primary factor which is optimized, but other factors like distance, number of turns, etc. taken in account
           let directionsRenderer = new google.maps.DirectionsRenderer(); // This renders the results
           directionsRenderer.setMap(map); // Existing map object displays directions
-
           // Create route from existing points used for markers based on the method/button selected
           const method = getTransportationMethod();
           document.getElementById("transportationMethod").innerText = method;
@@ -184,7 +160,6 @@
             destination: clientAddress,
             travelMode: method
           };
-
           // To use directions in the Maps JavaScript API, create an object of type DirectionsService and call DirectionsService.route() to initiate a request to the Directions service, passing it a DirectionsRequest object literal containing the input terms and a callback method to execute upon receipt of the response.
           directionsService.route(route, function (response, status) {
             // anonymous function to capture directions
@@ -221,5 +196,4 @@
     document.body.appendChild(script);
   </script>
 </body>
-
 </html>
