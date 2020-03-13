@@ -23,8 +23,8 @@ $(document).ready(function() {
 
 
   function createOrderHtml(item){
-    return `<div>${item.name}</div>
-    <div>${item.quantity}</div>
+    return `<h4>Item purchased:</h4><div>${item.name}</div>
+    <div><h4>Quantity:</h4>${item.quantity}</div>
     `;
   }
 
@@ -32,13 +32,11 @@ $(document).ready(function() {
     order.forEach((item)=> {
       $('#order-summary').find('#order').append(createOrderHtml(item));
     });
-    const paymentHtml = `<h4 class="ui dividing header">${preTax}</h4>
-    <p>${tax}</p>
-    <h4>${grandTotal}</h4>`
+    const paymentHtml = `<h4 class="ui dividing header"><h4>Total before tax:${preTax}</h4>
+    <p><h4>Tax:${tax}</h4></p>
+    <h4>Total Amount:${grandTotal}</h4>`
     $('#order-summary').find('#payment').append(paymentHtml)
   };
-
-
 
   createPaymentSummaryHtml(order);
 
