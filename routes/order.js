@@ -4,22 +4,32 @@ module.exports = (db) => {
 
 
 // generates unique id
-function generateRandomString() {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
+// function generateRandomString() {
+//   let result = "";
+//   const characters =
+//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//   const charactersLength = characters.length;
 
-  for (let i = 0; i < 6; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
+//   for (let i = 0; i < 6; i++) {
+//     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//   }
+//   return result;
+// }
 
-router.get("/payment", (req, res) => {
-getUserWithOrder = function (order) {
-return db.query(`SELECT * FROM orders
-WHERE order = $1`, [order]).then(res => res.rows)
-}
-});
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    db.query(`SELECT * FROM order_items;`)
+      .then(data => {
+        const order_item = data.rows;
+        res.json( order_item );
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+  return router;
+};
+
 }

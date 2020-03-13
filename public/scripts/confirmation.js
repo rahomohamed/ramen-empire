@@ -7,6 +7,7 @@ $(document).ready(function() {
     method: "GET",
     url: "/api/address"
   }).done(res => {
+    console.log(googleApiKey);
     const newAddress = replaceFunction(res[0].address_name);
     const map = `        <iframe
     width="600"

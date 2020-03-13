@@ -8,6 +8,44 @@ $(document).ready(function() {
     }
   };
 
+  function readPaymentFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("order"))
+  }
+
+  function paymentSummary(payment) {
+    return `
+    <article class = "menu" data-id= ${payment.name}>
+    </div>
+    <h3>${payment.qty}</h3>
+    <h4 class="ui dividing header">${payment.preTax}</h4>
+    <p>${payment.tax}
+    <h4>${payment.grandTotal}</h4>
+    </article>`;
+  };
+
+  function loadSummary() {
+    $.ajax({
+      url: 'api/order',
+      method: "GET",
+      data: {items: sendOrderToLocalStorage(order)
+        }
+      }).then(response => {
+     renderSummary(response);
+    });
+  };
+
+
+  loadSummary();
+
+  function renderSummary(items) {
+    for (let item of items) {
+      $("#order-summary").append(paymentSummary(item));
+    }
+  }
+});
+
+
+
   //Target the submit button
   const $form = $("#submit-button");
   $form.click(function() {
@@ -33,7 +71,7 @@ $(document).ready(function() {
     alert(
         "You cannot leave a field empty, please fill out all the forms to proceed"
     );
-  } 
+  }
 
 
   });

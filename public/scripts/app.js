@@ -1,6 +1,7 @@
 // global variable declarations to be filled in proceeding functions
 let menuItems = {};
 let order = {};
+let prices = {};
 const orderTest = {item1: 'thing', item2: 'thing2'};
 
 $(() => {
@@ -68,6 +69,11 @@ $(() => {
       $(".pre-tax").text(`Total Before Tax: $${preTax}`);
       $(".tax-amount").text(`13% HST: $${tax}`);
       $(".total-price").text(`Total Amount: $${grandTotal}`);
+      prices = {
+        'preTax': preTax,
+        'tax': tax,
+        'grandTotal': grandTotal
+      }
       console.log(order)
       // adds items to cart (which have already been added), and updates the tax and total price
       $(`.itm-${classId}`).click(function(event) {
@@ -171,27 +177,34 @@ $(() => {
   };
   loadMenu();
 
-
-
-const sendOrderToDb = function (orderTest) {
-    console.log('Order AJAX hit: ', orderTest)
+const sendOrderToLocalStorage = function (orders) {
+    console.log('Order AJAX hit: ', order)
     $.ajax({
       url: '/api/orders',
       method: "POST",
-      data: JSON.stringify(orderTest)
+      data: JSON.stringify(orders)
     })
-      .then(response => {
-        console.log('after Ajax post: ');
+      .then(res => {
+        const orderInformation = {
+          orders,
+          prices
+        }
+
+        addtoLocalStorage(orderInformation)
+
+        window.location.replace('/payment');
       });
   }
-
+  function addtoLocalStorage(orderInformation){
+    const stored = JSON.stringify({ orderInformation })
+    localStorage.setItem("orderInformation", stored);
+  }
 
   $("#submit-order").click(function() {
     event.preventDefault();
-
-
-  sendOrderToDb(orderTest);
-
+    sendOrderToLocalStorage(order);
 });
 
-});
+
+
+
