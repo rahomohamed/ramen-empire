@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>FCR - MENU</title>
+  <title>RAMEN EMPIRE</title>
   <!-- Disable viewport zooming -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Links and scripts for Semantic UI -->
   <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
@@ -22,60 +20,40 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- External JS -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/accordion.js"></script>
   <!-- JS links -->
   <script text="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <div class="headerTop">
-    <div class="wrapper">
-      <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
-      <nav>
-        <ul class="headerNav">
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="register.html">Register</a></li>
-        </ul>
-      </nav>
+  <header>
+    <div class="headerTop">
+      <div class="wrapper">
+        <a class="logo" href="/">RAMEN EMPIRE</a>
+        <nav>
+          <ul class="headerNav">
+          </ul>
+        </nav>
+      </div>
     </div>
-  </div>
+    <!-- <div id='scrollToMenu'>
+      <img src='../images/kitchen2.jpeg'>
+    </div> -->
+  </header>
   <main>
-    <section class= "menu">
+    <section class="menu">
       <h1>MENU</h1>
       <div class="wrapper">
         <div class="menu-item">
           <div class="menu-selection">
-
-            <!-- need to add method="POST" action="???" -->
-            <form  id = "menu-container"  class="quantity ui form">
-
-
+            <form id="menu-container" class="quantity ui form">
             </form>
           </div>
         </div>
       </div>
-      <!-- <div class="menu-item">
-          <div class="menu-selection">
-            <div class="item-image">
-              <img class="ui medium circular image" src="../images/nuggets.jpeg">
-            </div> -->
-      <!-- need to add method="POST" action="???" -->
-      <!-- <form class="quantity ui form">
-              <h4 class="ui dividing header">$3.99</h4>
-              <button class="add ui blue button" tabindex="0">Add</button>
-              <button class="remove ui red button" tabindex="0">Remove</button>
-            </form>
-          </div>
-          <div class="item-description">
-            <h3>2 PIECE COMBO</h3>
-            <h4>2 pieces of original fried chicken and individual fries</h4>
-          </div>
-        </div> -->
-      </div>
     </section>
   </main>
-  <form class="calculator ui form" method="POST" action="/api/orders">
+  <form id="calculator" class="calculator ui form" method="POST" action="/api/orders">
     <h4 class="ui dividing header">Order Summary</h4>
     <div class="new-item"></div>
     <div class="pre-tax"></div>
@@ -83,9 +61,10 @@
     <div class="total-price"></div>
     <button class="checkout ui green button" tabindex="0">Submit Order</button>
   </form>
+
   <footer>
     <div class="wrapper">
-      <p class="copyright">&copy; 2020 FRIED CHICKEN RESTAURANT</p>
+      <p class="copyright">&copy; 2020 RAMEN EMPIRE</p>
       <div class="social">
         <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
         <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
@@ -96,4 +75,3 @@
   </footer>
 </body>
 </html>
-<!-- make inputs "required", i.e. no empty text boxes -->

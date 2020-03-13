@@ -90,6 +90,11 @@ ul.headerNav li a:hover, .social a:hover {
 	color: #4183c4
 }
 
+main {
+  background-image: url("../images/ramen-shop.jpeg");
+  background-size: cover;
+}
+
 .payment-details {
 	background-image: url(/fried-chicken.jpg);
   background-size: cover;
@@ -103,14 +108,14 @@ form {
   padding: 25px;
 }
 
+h4 {
+  padding-top: 50px;
+}
+
 /* to be filled in
 .order-summary {
 
 } */
-
-footer {
-  padding: 20px 0;
-}
 
 .copyright {
   font-size: 14px;
@@ -123,7 +128,8 @@ footer, .social a {
 }
 
 footer {
-	background-color: #2d2d2d;
+  background-color: #2d2d2d;
+  padding: 20px 0;
 }
 
 .social i {

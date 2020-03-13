@@ -41,17 +41,12 @@
     <script type="text/javascript" src="./scripts/payment.js"></script>
   </head>
   <body>
+
+
+
     <div class="headerTop">
       <div class="wrapper">
-
-        <form class="ui form" method="POST" action="/api/twilio">
-          <h4 class="ui dividing header">Customer Information</h4>
-          <div class="field">
-            <label>Name</label>
-            <div class="two fields">
-              <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="First Name">
-        <a class="logo" href="landing_page.html">FRIED CHICKEN RESTAURANT</a>
+        <a class="logo" href="/">RAMEN EMPIRE</a>
         <nav>
           <ul class="headerNav">
             <li><a href="about.html">about</a></li>
@@ -62,10 +57,20 @@
         </nav>
       </div>
     </div>
+
+
+
     <main>
       <section class="payment-details">
         <div class="wrapper">
-          <form class="ui form" method="POST" action="confirmation.html">
+          <form class="ui form" method="POST" action="/api/twilio">
+            <span>You've ordered: </span>
+            <span id="summary"></span>
+            <br>
+            <span>You're almost there!</span>
+            <br>
+            <span>We just need your information and payment details!</span>
+
             <h4 class="ui dividing header">Customer Information</h4>
             <div class="field">
               <label>Name</label>

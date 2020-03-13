@@ -14,7 +14,7 @@ h1 {
 	margin: 0;
 }
 
-h1, h2, h3, ul.headerNav li, .menu-item {
+h1, h2, h3, ul.headerNav li {
 	text-align: center;
 }
 
@@ -31,7 +31,7 @@ p {
 	padding: 5px 0;
 }
 
-p, .blog a, .menu-item a {
+p, .blog a {
 	font-size: 16px;
 }
 
@@ -51,10 +51,18 @@ li {
 	list-style-type: none;
 }
 
+header {
+  background-image: url("../images/ramen-hero.jpeg");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 .wrapper {
 	margin: 0 auto;
 	max-width: 1280px;
-	width: 80%;
+	width: 90%;
 }
 
 .headerTop {
@@ -101,37 +109,100 @@ ul.headerNav li a:hover {
   color: #4183c4
 }
 
-.menu {
-  padding-top: 50px;
+main {
+  background-image: url("../images/kitchen.jpeg");
+  background-size: cover;
 }
 
-.menu h1 {
-  color: white;
-  padding-bottom: 50px;
+// .menuMain .wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   padding: 200px 0;
+//   align-items: center;
+//   justify-content: center;
+
+// }
+
+.title {
+  // height: 250px;
+  // width: 250px;
+  // border-radius: 50%;
+  background-color: green;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  // width: 75%;
 }
 
-.menu .wrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+h2 {
+  color: darkgreen;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  font-size: 35px;
 }
+
+// #ramen {
+//   background-image: url("../images/bowl.jpeg");
+//   width: 75%;
+// }
+
+// #ramen.active {
+//   width: 75%;
+// }
+
+// #ramen .active h2 #menuShow {
+//   font-size: 100px;
+// }
 
 .menu-item {
+width: 73.5%;
+}
+
+
+// form and menu-item merged with menu-selection to become #menu-container
+#menu-container {
+  margin-top: 50px;
   align-items: center;
   background-color: rgba(255,255,255,0.5);
   border: black solid 1px;
   border-radius: 25px;
   display: flex;
-  flex-direction: row;
-  margin-bottom: 150px;
-  padding: 25px;
-  width: 30%;
+  flex-direction: column;
+  // flex-direction: row;
+  // padding: 25px;
 }
 
-.menu-selection {
-  align-items: center;
+article {
+  border-radius: 25px;
+  border: black solid 1px;
+  margin: 5px;
+}
+
+// article h3 {
+//   margin: 10px 0;
+// }
+
+// h4.ui.dividing.header {
+//   margin: 10px 0;
+// }
+
+// article h4 {
+//   margin: 0;
+// }
+
+.menu{
+  padding: 25px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // justify-content: space-between;
+  width: 100%;
+  // margin: 12.5px;
+  // padding: 12.5px;
 }
 
 .item-image {
@@ -175,10 +246,13 @@ ul.headerNav li a:hover {
   bottom: 79px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 10px;
   position: fixed;
-  right: 25px;
-  width: 30%;
+  right: 80px;
+  width: 17.5%;
+  // visibility: hidden;
+  // display: none;
+  // display or visibility?
 }
 
 .new-item, .pre-tax, .tax-amount, .total-price {
@@ -215,4 +289,15 @@ footer, .social a {
 
 .social a:hover {
 	color: #4183c4
+}
+
+/* Styles for mobile phones with a width of 600px or below */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 20px;
+  }
+
+    .copyright {
+    font-size: 14px;
+  }
 }
