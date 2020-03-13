@@ -2,11 +2,9 @@ $(document).ready(function() {
   function setTransportationMethod(method) {
     localStorage.setItem("transportationMethod", method);
   }
-
   function reloadPage() {
     location.reload();
   }
-
   console.log(localStorage.getItem("transportationMethod"));
 
   $("#walking").click(event => {
@@ -40,12 +38,12 @@ $(document).ready(function() {
   }
 
   function createConfirmation() {
-      return `<h3>Your confirmation number is: ${generateRandomString()}</h3>`
-    };
+    return `<h3>Your confirmation number is: ${generateRandomString()}</h3>`;
+  }
 
-    function confirmationPage() {
+  function confirmationPage() {
     $("#confirmation").append(createConfirmation());
-      }
+  }
 
   confirmationPage();
 

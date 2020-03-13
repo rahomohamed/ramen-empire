@@ -36,7 +36,6 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
-
     <!-- JS links -->
     <script type="text/javascript" src="./scripts/payment.js"></script>
   </head>
@@ -65,75 +64,72 @@
             <h2>You're almost there!</h2>
             <br>
             <h3>We just need your information and payment details!</h3>
-
             <div class="box">
-            <h4 class="ui dividing header">Customer Information</h4>
-            <div class="field">
-              <label>Name</label>
-              <div class="two fields">
-                <div class="field">
-                  <input
-                    id="first-name"
-                    type="text"
-                    name="shipping[first-name]"
-                    placeholder="First Name"
-                  />
+              <h4 class="ui dividing header">Customer Information</h4>
+              <div class="field">
+                <label>Name</label>
+                <div class="two fields">
+                  <div class="field">
+                    <input
+                      id="first-name"
+                      type="text"
+                      name="shipping[first-name]"
+                      placeholder="First Name"
+                    />
+                  </div>
+                  <div class="field">
+                    <input
+                      id="last-name"
+                      type="text"
+                      name="shipping[last-name]"
+                      placeholder="Last Name"
+                    />
+                  </div>
                 </div>
                 <div class="field">
+                  <label>Address</label>
                   <input
-                    id="last-name"
+                    id="address"
                     type="text"
-                    name="shipping[last-name]"
-                    placeholder="Last Name"
+                    name="address"
+                    placeholder="Ex. 123 Fake Street"
                   />
                 </div>
               </div>
               <div class="field">
-                <label>Address</label>
+                <label>Phone Number</label>
                 <input
-                  id="address"
+                  id="phone-form"
                   type="text"
-                  name="address"
-                  placeholder="Ex. 123 Fake Street"
+                  name="phone-number"
+                  placeholder="Phone Number"
                 />
               </div>
             </div>
-            <div class="field">
-              <label>Phone Number</label>
-              <input
-                id="phone-form"
-                type="text"
-                name="phone-number"
-                placeholder="Phone Number"
-              />
-            </div>
-            </div>
-
-
             <div class="box">
-            <h4 class="ui dividing header">Billing Information</h4>
-            <div class="field">
-              <label>Credit Card Type</label>
+              <h4 class="ui dividing header">Billing Information</h4>
               <div class="field">
-                <select class="ui fluid search dropdown" name="card[type]">
+                <label>Credit Card Type</label>
+                <div class="field">
+                  <select class="ui fluid search dropdown" name="card[type]">
                   <option value="">Credit Card Type</option>
                   <option value="1">Visa</option>
                   <option value="2">Mastercard</option>
                   <option value="3">American Express</option>
-                </select>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="fields">
-              <div class="seven wide field">
-                <label>Credit Card Number</label>
-                <input
-                  id="card-number"
-                  type="text"
-                  name="card[number]"
-                  maxlength="16"
-                  placeholder="Credit Card #"
-                />
-              </div>
+              <div class="fields">
+                <div class="seven wide field">
+                  <label>Credit Card Number</label>
+                  <input
+                    id="card-number"
+                    type="text"
+                    name="card[number]"
+                    maxlength="16"
+                    placeholder="Credit Card #"
+                  />
+                </div>
               <div class="three wide field">
                 <label>CVC</label>
                 <input
@@ -184,7 +180,6 @@
             </button>
             </div>
           </form>
-          <!-- order summary should render here -->
           <form id = "order-summary">
             <article id=order>
               <h2>Order Summary</h2>
@@ -192,10 +187,8 @@
               <br>
             </article>
             <article id=payment>
-
             </article>
           </form>
-
         </div>
       </section>
     </main>

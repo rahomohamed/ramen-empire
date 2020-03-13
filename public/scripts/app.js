@@ -2,10 +2,10 @@
 // global variable declarations to be filled in proceeding functions
 let menuItems = {};
 let order = [];
-let preTax=0;
-let tax=0;
-let grandTotal=0;
-
+let preTax = 0;
+let tax = 0;
+let grandTotal = 0;
+// document ready
 $(() => {
   const createOrderItem = function(item) {
     return `
@@ -15,8 +15,8 @@ $(() => {
         <span  class="counter-${item.id}">${item.quantity}</span> X <span>${item.name}</span>
         <br>
         <br>
-      </span>`
-  }
+      </span>`;
+  };
   // template for menu items
   const createMenuItem = function(item) {
     return `
@@ -34,31 +34,31 @@ $(() => {
   function preTax1()  {
     let preTax = 0;
     order.forEach(order=> {
-      preTax = preTax +  Number((order.price * order.quantity).toFixed(2))
+      preTax = preTax +  Number((order.price * order.quantity).toFixed(2));
       console.log("Order", order);
-    })
-    return preTax
+    });
+    return preTax;
   }
   function tax1(preTax) {
-    return (preTax * 0.13).toFixed(2)
+    return (preTax * 0.13).toFixed(2);
   }
   function grandTotal1(preTax) {
-    return (preTax * 1.13).toFixed(2)
+    return (preTax * 1.13).toFixed(2);
   }
   let calculatePrice = (item) => {
-     preTax = preTax1();
-     tax = tax1(preTax);
+    preTax = preTax1();
+    tax = tax1(preTax);
     grandTotal = grandTotal1(preTax);
-  }
+  };
   let showPrice = (preTax, tax, grandTotal) => {
     $(".pre-tax").text(`Total Before Tax: $${preTax}`);
     $(".tax-amount").text(`13% HST: $${tax}`);
     $(".total-price").text(`Total Amount: $${grandTotal}`);
-  }
-  function resetPrices(preTax,tax, grandTotal){
-    preTax=0;
-    tax =0;
-    grandTotal =0;
+  };
+  function resetPrices(preTax,tax, grandTotal) {
+    preTax = 0;
+    tax = 0;
+    grandTotal = 0;
   }
   // when a menu item is rendered, function is added to add to cart button
   const addAddCartHandler = (item) => {
@@ -66,24 +66,24 @@ $(() => {
     const menuItem = menuItems[item.id];
     // when add to cart button is clicked
     const menuItemEl = $(`.menu [data-id=${item.id}]`);
-    console.log(menuItemEl + "menuitem +menu")
+    console.log(menuItemEl + "menuitem +menu");
     menuItemEl.find('.addCart').on('click', function() {
       $(this).addClass("disabled");
       handleAddToCart(item);
       calculatePrice(item);
-      console.log("Clicked")
-      console.log("ID", item.id)
-      showPrice(preTax, tax, grandTotal)
+      console.log("Clicked");
+      console.log("ID", item.id);
+      showPrice(preTax, tax, grandTotal);
     });
-  }
+  };
   // counter function
   const updateCounter = (item) => {
     const orderItemEl = $(`#${item.id}`);
     let counter = orderItemEl.find(`.counter-${ item.id }`);
-    console.log(counter)
-    console.log(item.quantity)
-    $(counter).text(item.quantity)
-  }
+    console.log(counter);
+    console.log(item.quantity);
+    $(counter).text(item.quantity);
+  };
   // increment function for + button
   const increment = (id) => {
     order.forEach(item => {
@@ -91,21 +91,21 @@ $(() => {
         item.quantity++;
         updateCounter(item);
       }
-    })
-  }
+    });
+  };
   // handler for increment buttons
   const incrementHandler = (orderItem) => {
-    const orderItemId = orderItem.id
+    const orderItemId = orderItem.id;
     // when add to cart button is clicked
     const orderItemEl = $(`#${orderItemId}`);
-    orderItemEl.find('.add').on('click', function () {
-      increment(orderItemId)
+    orderItemEl.find('.add').on('click', function() {
+      increment(orderItemId);
       console.log("Increment happened");
       calculatePrice(orderItem);
-      console.log(grandTotal + "HELLO")
-      showPrice(preTax, tax, grandTotal)
+      console.log(grandTotal + "HELLO");
+      showPrice(preTax, tax, grandTotal);
     });
-  }
+  };
   // decrement function for - button
   const decrement = (id) => {
     order.forEach(item => {
@@ -115,27 +115,27 @@ $(() => {
       }
       if (item.quantity === 0) {
         const menuItemEl = $(`.menu [data-id=${item.id}]`);
-        console.log(menuItemEl)
+        console.log(menuItemEl);
         $(menuItemEl).find(".addCart").removeClass("disabled");
         const orderItemEl = $(`#${item.id}`);
         orderItemEl.remove();
-        console.log(orderItemEl + "YOOO")
+        console.log(orderItemEl + "YOOO");
       }
-    })
-  }
+    });
+  };
   // handler for decrement buttons
   const decrementHandler = (orderItem) => {
-    const orderItemId = orderItem.id
+    const orderItemId = orderItem.id;
     // when add to cart button is clicked
     const orderItemEl = $(`#${orderItemId}`);
-    orderItemEl.find('.remove').on('click', function () {
-      decrement(orderItemId)
+    orderItemEl.find('.remove').on('click', function() {
+      decrement(orderItemId);
       console.log("decrement happened");
       calculatePrice(orderItem);
-      console.log(grandTotal + "HELLO")
-      showPrice(preTax, tax, grandTotal)
+      console.log(grandTotal + "HELLO");
+      showPrice(preTax, tax, grandTotal);
     });
-  }
+  };
   // after add to cart button is clicked
   const handleAddToCart  = (item) => {
     const menuItem = menuItems[item.id];
@@ -144,13 +144,13 @@ $(() => {
       'name': menuItem.name,
       'price': menuItem.price,
       'quantity': 1
-    }
-    order.push(orderItem)
-    console.log(order)
+    };
+    order.push(orderItem);
+    console.log(order);
     $(".new-item").append(createOrderItem(orderItem));
     incrementHandler(orderItem);
     decrementHandler(orderItem);
-  }
+  };
   // renders menu items
   const renderMenu = function(items) {
     for (let item of items) {
@@ -173,19 +173,19 @@ $(() => {
   };
   loadMenu();
 
-const sendOrderToLocalStorage = function (orders) {
-    console.log('Order AJAX hit: ', order)
+  const sendOrderToLocalStorage = function(orders) {
+    console.log('Order AJAX hit: ', order);
     $.ajax({
       url: '/api/order',
       method: "POST",
       data: JSON.stringify(orders)
     })
       .then(res => {
-        addtoLocalStorage(order)
+        addtoLocalStorage(order);
         window.location.replace('/payment');
       });
-  }
-  function addtoLocalStorage(order){
+  };
+  function addtoLocalStorage(order) {
     localStorage.setItem("order",JSON.stringify(order));
     localStorage.setItem("preTax", preTax);
     localStorage.setItem("tax", tax);
@@ -195,7 +195,7 @@ const sendOrderToLocalStorage = function (orders) {
   $("#submit-order").click(function() {
     event.preventDefault();
     sendOrderToLocalStorage(order);
-});
+  });
 
 });
 

@@ -1,8 +1,8 @@
 //The Confirmation Page submit- cannot leave field empty and press submit otherwise alert message
 let order = [];
-let preTax=0;
-let tax=0;
-let grandTotal=0;
+let preTax = 0;
+let tax = 0;
+let grandTotal = 0;
 $(document).ready(function() {
 
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
   };
 
 
-  function createOrderHtml(item){
+  function createOrderHtml(item) {
     return `
     <h4>${item.name} X ${item.quantity}</h4>
     `;
@@ -35,16 +35,14 @@ $(document).ready(function() {
     const paymentHtml = `
     <h4 class="ui dividing header"><h4>Total before tax: $${preTax}.00</h4>
     <h4>Tax: $${tax}</h4>
-    <h4>Total Amount: $${grandTotal}</h4>`
-    $('#order-summary').find('#payment').append(paymentHtml)
-  };
+    <h4>Total Amount: $${grandTotal}</h4>`;
+    $('#order-summary').find('#payment').append(paymentHtml);
+  }
 
   createPaymentSummaryHtml(order);
-
   //Target the submit button
   let form = $("#submit-button");
   form.click(function() {
-
     const name = $("#first-name").val();
     const lastName = $("#last-name").val();
     const phone = $("#phone-form").val();
@@ -62,12 +60,10 @@ $(document).ready(function() {
       !isEntryValid(cardDate) ||
       !isEntryValid(cardCvv)
     ) {
-
-    event.preventDefault();
-    alert(
+      event.preventDefault();
+      alert(
         "You cannot leave a field empty, please fill out all the forms to proceed"
-    );
-  }
-
+      );
+    }
   });
 });
