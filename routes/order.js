@@ -1,20 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-module.exports = (db) => {
 
-
-// generates unique id
-// function generateRandomString() {
-//   let result = "";
-//   const characters =
-//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//   const charactersLength = characters.length;
-
-//   for (let i = 0; i < 6; i++) {
-//     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//   }
-//   return result;
-// }
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -29,7 +15,11 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+  router.post("/", (req, res) => {
+    res.redirect('/payment')
+
+  });
   return router;
 };
 
-}
+

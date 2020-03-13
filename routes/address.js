@@ -16,16 +16,3 @@ module.exports = db => {
   return router;
 };
 
-// router.post("/", (req, res) => {
-//   console.log(req.body);
-//   res.json({});
-//   // const address = findFromReq;
-//   // db.save(address)
-//   //   .then(() => {
-//   //     res.json({ address });
-//   //   })
-//   //   .catch(() => {
-//   //     res.json({ address });
-//   //   });
-// });
-// return router;l

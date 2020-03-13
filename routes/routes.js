@@ -16,7 +16,7 @@ module.exports = (db) => {
 
   //Submit button on landing page makes POST request to "/api/orders" (/orders.js)
   //POST request has contents of order calculator
-  //"/api/orders" handles database INSERTS, the redirects to "/payment"
+  //"/api/order" handles database INSERTS, the redirects to "/payment"
 
   router.get("/payment", (req, res) => {
     console.log(req.body)

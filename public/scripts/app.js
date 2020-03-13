@@ -1,167 +1,163 @@
 // global variable declarations to be filled in proceeding functions
+// global variable declarations to be filled in proceeding functions
 let menuItems = {};
-let order = {};
-let prices = {};
-const orderTest = {item1: 'thing', item2: 'thing2'};
+let order = [];
+let preTax=0;
+let tax=0;
+let grandTotal=0;
 
 $(() => {
+  const createOrderItem = function(item) {
+    return `
+      <span id=${item.id}>
+        <button type="button" class="add ui blue button"  tabindex="0">+</button>
+        <button type="button" class="remove ui red button" tabindex="0">-</button>
+        <span  class="counter-${item.id}">${item.quantity}</span> X <span>${item.name}</span>
+        <br>
+        <br>
+      </span>`
+  }
   // template for menu items
   const createMenuItem = function(item) {
     return `
-    <article class = "menu" data-id= ${item.id}>
-    <div class="item-image">
-      <img class="ui medium circular image" src=${item.image}>
-    </div>
-    <h3>${item.name}</h3>
-    <h4 class="ui dividing header">${item.price}</h4>
-    <button class="addCart ui blue button" tabindex="0">Add to cart</button>
-    <h4>${item.description}</h4>
+    <article class="menu" data-id=${item.id}>
+      <div class="item-image">
+        <img class="ui medium circular image" src=${item.image}>
+      </div>
+      <h3>${item.name}</h3>
+      <h4 class="ui dividing header">${item.price}</h4>
+      <button class="addCart ui blue button" type="button" tabindex="0">Add to cart</button>
+      <h4>${item.description}</h4>
     </article>`;
   };
+  // calculator math
+  function preTax1()  {
+    let preTax = 0;
+    order.forEach(order=> {
+      preTax = preTax +  Number((order.price * order.quantity).toFixed(2))
+      console.log("Order", order);
+    })
+    return preTax
+  }
+  function tax1(preTax) {
+    return (preTax * 0.13).toFixed(2)
+  }
+  function grandTotal1(preTax) {
+    return (preTax * 1.13).toFixed(2)
+  }
+  let calculatePrice = (item) => {
+     preTax = preTax1();
+     tax = tax1(preTax);
+    grandTotal = grandTotal1(preTax);
+  }
+  let showPrice = (preTax, tax, grandTotal) => {
+    $(".pre-tax").text(`Total Before Tax: $${preTax}`);
+    $(".tax-amount").text(`13% HST: $${tax}`);
+    $(".total-price").text(`Total Amount: $${grandTotal}`);
+  }
+  function resetPrices(preTax,tax, grandTotal){
+    preTax=0;
+    tax =0;
+    grandTotal =0;
+  }
+  // when a menu item is rendered, function is added to add to cart button
+  const addAddCartHandler = (item) => {
+    resetPrices();
+    const menuItem = menuItems[item.id];
+    // when add to cart button is clicked
+    const menuItemEl = $(`.menu [data-id=${item.id}]`);
+    console.log(menuItemEl + "menuitem +menu")
+    menuItemEl.find('.addCart').on('click', function() {
+      $(this).addClass("disabled");
+      handleAddToCart(item);
+      calculatePrice(item);
+      console.log("Clicked")
+      console.log("ID", item.id)
+      showPrice(preTax, tax, grandTotal)
+    });
+  }
+  // counter function
+  const updateCounter = (item) => {
+    const orderItemEl = $(`#${item.id}`);
+    let counter = orderItemEl.find(`.counter-${ item.id }`);
+    console.log(counter)
+    console.log(item.quantity)
+    $(counter).text(item.quantity)
+  }
+  // increment function for + button
+  const increment = (id) => {
+    order.forEach(item => {
+      if (item.id === id) {
+        item.quantity++;
+        updateCounter(item);
+      }
+    })
+  }
+  // handler for increment buttons
+  const incrementHandler = (orderItem) => {
+    const orderItemId = orderItem.id
+    // when add to cart button is clicked
+    const orderItemEl = $(`#${orderItemId}`);
+    orderItemEl.find('.add').on('click', function () {
+      increment(orderItemId)
+      console.log("Increment happened");
+      calculatePrice(orderItem);
+      console.log(grandTotal + "HELLO")
+      showPrice(preTax, tax, grandTotal)
+    });
+  }
+  // decrement function for - button
+  const decrement = (id) => {
+    order.forEach(item => {
+      if (item.id === id && item.quantity > 0) {
+        item.quantity--;
+        updateCounter(item);
+      }
+      if (item.quantity === 0) {
+        const menuItemEl = $(`.menu [data-id=${item.id}]`);
+        console.log(menuItemEl)
+        $(menuItemEl).find(".addCart").removeClass("disabled");
+        const orderItemEl = $(`#${item.id}`);
+        orderItemEl.remove();
+        console.log(orderItemEl + "YOOO")
+      }
+    })
+  }
+  // handler for decrement buttons
+  const decrementHandler = (orderItem) => {
+    const orderItemId = orderItem.id
+    // when add to cart button is clicked
+    const orderItemEl = $(`#${orderItemId}`);
+    orderItemEl.find('.remove').on('click', function () {
+      decrement(orderItemId)
+      console.log("decrement happened");
+      calculatePrice(orderItem);
+      console.log(grandTotal + "HELLO")
+      showPrice(preTax, tax, grandTotal)
+    });
+  }
+  // after add to cart button is clicked
+  const handleAddToCart  = (item) => {
+    const menuItem = menuItems[item.id];
+    let orderItem = {
+      'id': menuItem.id,
+      'name': menuItem.name,
+      'price': menuItem.price,
+      'quantity': 1
+    }
+    order.push(orderItem)
+    console.log(order)
+    $(".new-item").append(createOrderItem(orderItem));
+    incrementHandler(orderItem);
+    decrementHandler(orderItem);
+  }
   // renders menu items
   const renderMenu = function(items) {
     for (let item of items) {
-      $("#menu-container").append(createMenuItem(item));
+      const menuItem = createMenuItem(item);
+      $("#menu-container").append(menuItem);
+      addAddCartHandler(item);
     }
-    // renders order summary/calculator form when menu item is added to order, also adds class to addCart button to disable it
-    $(".addCart").click(function() {
-      $(".calculator.ui.form").css("visibility", "visible");
-      event.preventDefault();
-      const $itemContainer = $(this).parent();
-      const itemId = $itemContainer.attr("data-id");
-      const itemInfo = menuItems[itemId];
-      $itemContainer.find(".addCart").addClass("disabled");
-      // variable declarations for tax and total calculations
-      const addItem = menuItems[itemId].name;
-      // order[addItem] = { qty: 1, name: addItem };
-      order[addItem] = { qty: 1};
-      const id = Number(itemId) - 1;
-      const classId = "class" + id;
-      // calculations
-      let fried;
-      if (order["Fried Chicken Meal"]) {
-        fried = ((order["Fried Chicken Meal"].qty * 12))
-      } else {
-        fried = 0
-      };
-      let sandwich;
-      if (order["Chicken Sandwich"]) {
-        sandwich = ((order["Chicken Sandwich"].qty * 11))
-      } else {
-        sandwich = 0
-      };
-      let tender;
-      if (order["Chicken Tender Meal"]) {
-        tender = ((order["Chicken Tender Meal"].qty * 13))
-      } else {
-        tender = 0
-      };
-      const preTax = fried + sandwich + tender
-      const tax = (preTax * 0.13).toFixed(2)
-      const grandTotal = (preTax * 1.13).toFixed(2)
-      // buttons are added and taxes/total price for the menu item appear in the summary/calculator form
-      $(".new-item").append(
-        $(
-          `<span id =${classId}><button class="add ui blue button itm-${classId}" tabindex="0">+</button> <button class="remove-itm-${classId} ui red button" tabindex="0">-</button> <span id="t-${classId}" class="counter-${classId}">1 X ${addItem}</span> <br> <br></span>`
-        )
-      );
-      // calculations are done above
-      $(".pre-tax").text(`Total Before Tax: $${preTax}`);
-      $(".tax-amount").text(`13% HST: $${tax}`);
-      $(".total-price").text(`Total Amount: $${grandTotal}`);
-      prices = {
-        'preTax': preTax,
-        'tax': tax,
-        'grandTotal': grandTotal
-      }
-      console.log(order)
-      // adds items to cart (which have already been added), and updates the tax and total price
-      $(`.itm-${classId}`).click(function(event) {
-        event.preventDefault();
-        const n = Number(classId.split("class")[1]);
-        const item = menuItems[n + 1].name;
-        order[item].qty++;
-        // $(`#t-${classId}`).text(`${order[item].qty} X ${order[item].name}`);
-        $(`#t-${classId}`).text(`${order[item].qty} X ${addItem}`);
-        // calculations
-        let fried;
-        if (order["Fried Chicken Meal"]) {
-          fried = ((order["Fried Chicken Meal"].qty * 12))
-        } else {
-          fried = 0
-        };
-        let sandwich;
-        if (order["Chicken Sandwich"]) {
-          sandwich = ((order["Chicken Sandwich"].qty * 11))
-        } else {
-          sandwich = 0
-        };
-        let tender;
-        if (order["Chicken Tender Meal"]) {
-          tender = ((order["Chicken Tender Meal"].qty * 13))
-        } else {
-          tender = 0
-        };
-        const preTax = fried + sandwich + tender
-        const tax = (preTax * 0.13).toFixed(2)
-        const grandTotal = (preTax * 1.13).toFixed(2)
-        // calculations are done above
-        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
-        $(".tax-amount").text(`13% HST: $${tax}`);
-        $(".total-price").text(`Total Amount: $${grandTotal}`);
-        console.log(order)
-      });
-      // removes items from cart (which have already been added), and updates the tax and total price
-      $(`.remove-itm-${classId}`).click(function() {
-        event.preventDefault();
-        let i = parseInt($(`.counter-${classId}`).text());
-        if (i === 1) {
-          i = 0;
-          $(".addCart").removeClass("disabled");
-          $(`#${classId}`).remove();
-        } else {
-          i--;
-        }
-        const n = Number(classId.split("class")[1]);
-        const item = menuItems[n + 1].name;
-        order[item].qty--;
-        // removes the first occurence of the menu item (we need to make the item row dissappear when you get to 0)
-        $(`.${classId}, .counter-${classId}`).text(
-          // `${order[item].qty} X ${order[item].name}`
-          `${order[item].qty} X ${addItem}`
-        );
-        // calculations
-        let fried;
-        if (order["Fried Chicken Meal"]) {
-          fried = ((order["Fried Chicken Meal"].qty * 12))
-        } else {
-          fried = 0
-        };
-        let sandwich;
-        if (order["Chicken Sandwich"]) {
-          sandwich = ((order["Chicken Sandwich"].qty * 11))
-        } else {
-          sandwich = 0
-        };
-        let tender;
-        if (order["Chicken Tender Meal"]) {
-          tender = ((order["Chicken Tender Meal"].qty * 13))
-        } else {
-          tender = 0
-        };
-        const preTax = fried + sandwich + tender
-        const tax = (preTax * 0.13).toFixed(2)
-        const grandTotal = (preTax * 1.13).toFixed(2)
-        // calculations are done above
-        $(".pre-tax").text(`Total Before Tax: $${preTax}`);
-        $(".tax-amount").text(`13% HST: $${tax}`);
-        $(".total-price").text(`Total Amount: $${grandTotal}`);
-        console.log(order)
-        if (order[item].qty <= 0) {
-          delete order[item];
-        }
-      });
-    });
   };
   // loads menu items
   const loadMenu = function() {
@@ -180,24 +176,20 @@ $(() => {
 const sendOrderToLocalStorage = function (orders) {
     console.log('Order AJAX hit: ', order)
     $.ajax({
-      url: '/api/orders',
+      url: '/api/order',
       method: "POST",
       data: JSON.stringify(orders)
     })
       .then(res => {
-        const orderInformation = {
-          orders,
-          prices
-        }
-
-        addtoLocalStorage(orderInformation)
-
+        addtoLocalStorage(order)
         window.location.replace('/payment');
       });
   }
-  function addtoLocalStorage(orderInformation){
-    const stored = JSON.stringify({ orderInformation })
-    localStorage.setItem("orderInformation", stored);
+  function addtoLocalStorage(order){
+    localStorage.setItem("order",JSON.stringify(order));
+    localStorage.setItem("preTax", preTax);
+    localStorage.setItem("tax", tax);
+    localStorage.setItem("grandTotal", grandTotal);
   }
 
   $("#submit-order").click(function() {
@@ -205,6 +197,5 @@ const sendOrderToLocalStorage = function (orders) {
     sendOrderToLocalStorage(order);
 });
 
-
-
+});
 
