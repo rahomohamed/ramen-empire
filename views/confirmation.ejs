@@ -94,6 +94,7 @@
     </footer>
     <!-- THE SCRIPT FOR THE GOOGLE MAP API -->
     <script>
+      // Default is driving. If user clicks on the transportation method button, it iwll get from local storage the method name (Driving, Bicycling, Walking )
       function getTransportationMethod() {
         let method = localStorage.getItem("transportationMethod");
         if (!method) {
@@ -111,10 +112,10 @@
             method: "GET",
             url: "/api/address"
           }).done(res => {
-            // THE LHL ADDRESS AS RESTO ADDRESS
+            // THE Client address that is inputted in the address field
             const newAddress = res[1].address_name;
 
-            //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route STRETCH
+            //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route
             geocode();
             function geocode() {
               axios
@@ -147,7 +148,6 @@
       }
 
       var map;
-      // initMap();
       function createGoogleMapsPosition(lat, long) {
         return new google.maps.LatLng(lat, long);
       }
@@ -164,12 +164,13 @@
 
             const options = { zoom: 15, scaleControl: true, center: center };
             map = new google.maps.Map(document.getElementById("map"), options);
-            // Locations of landmarks
+            // Locations of restaurant/ lhl
             const lightHouse = createGoogleMapsPosition(
               43.6444883,
               -79.40119279999999
             );
 
+            //what the user put in
             const clientAddress = createGoogleMapsPosition(
               formattedAddressLat,
               formattedAddressLong
@@ -189,7 +190,7 @@
             let directionsRenderer = new google.maps.DirectionsRenderer(); // This renders the results
             directionsRenderer.setMap(map); // Existing map object displays directions
 
-            // Create route from existing points used for markers
+            // Create route from existing points used for markers based on the method/button selected
             const method = getTransportationMethod();
             document.getElementById("transportationMethod").innerText = method;
             const route = {
