@@ -1,237 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>RAMEN EMPIRE - YOUR ORDER IS CONFIRMED!</title>
-    <!-- Disable viewport zooming -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Links and scripts for Semantic UI -->
-    <link rel="stylesheet" type="text/css" href="/semantic.min.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      `
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/confirmation-style.css" />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:400,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <!-- Link for Axios to make Get Request for Google Geocode API -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-      var googleApiKey = "<%= process.env.GOOGLE_API %>";
-    </script>
-    <script text="text/javascript" src="/scripts/confirmation.js"></script>
-  </head>
-  <div class="container">
-    <div id="formatted-address"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>RAMEN EMPIRE - YOUR ORDER IS CONFIRMED!</title>
+  <!-- Disable viewport zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Links and scripts for Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" `
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/semantic.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/confirmation-style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <!-- Link for Axios to make Get Request for Google Geocode API -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    var googleApiKey = "<%= process.env.GOOGLE_API %>";
+  </script>
+  <script text="text/javascript" src="/scripts/confirmation.js"></script>
+</head>
+<div class="container">
+  <div id="formatted-address"></div>
+</div>
+
+<body>
+  <div class="headerTop">
+    <div class="wrapper">
+      <a class="logo" href="/">RAMEN EMPIRE</a>
+      <nav>
+        <ul class="headerNav">
+          <li><a href="about.html">about</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
-  <body>
-    <div class="headerTop">
+  <main>
+    <section class="payment-details">
       <div class="wrapper">
-        <a class="logo" href="/">RAMEN EMPIRE</a>
-        <nav>
-          <ul class="headerNav">
-            <li><a href="about.html">about</a></li>
-            <li><a href="contact.html">contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-          </ul>
-        </nav>
+        <form id="confirmation">
+
+        </form>
+        <h2>Order Summary</h2>
+      </div>
+      </div>
+      <div style="display:flex">
+        <button id="driving">Driving</button>
+        <button id="walking">Walking</button>
+        <button id="bicycling">Cycling</button>
+      </div>
+      <div id="transportationMethod"></div>
+
+      <div id="map" style="height:400px;width:400px"></div>
+      <div id="msg"></div>
+    </section>
+    <section class="google-api"></section>
+  </main>
+  <footer>
+    <div class="wrapper">
+      <p class="copyright">&copy; 2020 RAMEN EMPIRE</p>
+      <div class="social">
+        <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.plus.google.com"><i class="fab fa-google-plus-g"></i></a>
       </div>
     </div>
-    <main>
-      <section class="payment-details">
-        <div class="wrapper">
-          <form id = "confirmation">
+  </footer>
+  <!-- THE SCRIPT FOR THE GOOGLE MAP API -->
+  <script>
+    // Default is driving. If user clicks on the transportation method button, it iwll get from local storage the method name (Driving, Bicycling, Walking )
+    function getTransportationMethod() {
+      let method = localStorage.getItem("transportationMethod");
+      if (!method) {
+        method = "DRIVING";
+      }
+      return method;
+    }
 
-          </form>
-            <h2>Order Summary</h2>
-          </div>
-        </div>
-        <div style="display:flex">
-          <button id="driving">Driving</button>
-          <button id="walking">Walking</button>
-          <button id="bicycling">Cycling</button>
-        </div>
-        <div id="transportationMethod"></div>
+    var formattedAddressLat;
+    var formattedAddressLong;
+    // GETS THE ADDRESS FROM DATABASE
+    function getCoordinates() {
 
-        <div id="map" style="height:400px;width:400px"></div>
-        <div id="msg"></div>
-      </section>
-      <section class="google-api"></section>
-    </main>
-    <footer>
-      <div class="wrapper">
-        <p class="copyright">&copy; 2020 RAMEN EMPIRE</p>
-        <div class="social">
-          <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
-          <a href="http://www.instagram.com"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="http://www.facebook.com"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="http://www.plus.google.com"
-            ><i class="fab fa-google-plus-g"></i
-          ></a>
-        </div>
-      </div>
-    </footer>
-    <!-- THE SCRIPT FOR THE GOOGLE MAP API -->
-    <script>
-      // Default is driving. If user clicks on the transportation method button, it iwll get from local storage the method name (Driving, Bicycling, Walking )
-      function getTransportationMethod() {
-        let method = localStorage.getItem("transportationMethod");
-        if (!method) {
-          method = "DRIVING";
+      const promise = new Promise((resolve, reject) => {
+
+        // THE Client address that is inputted in the address field
+        const newAddress = localStorage.getItem("address");
+
+        //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route
+        geocode();
+        function geocode() {
+          axios
+            .get("https://maps.googleapis.com/maps/api/geocode/json?", {
+              params: {
+                address: newAddress,
+                key: googleApiKey
+              }
+            })
+
+            //Gets the latitude and longitude based on the New Address
+            .then(function (response) {
+              //Formatted address
+              //Latitude
+              formattedAddressLat =
+                response.data.results[0].geometry.location.lat;
+              //Longitude
+              formattedAddressLong =
+                response.data.results[0].geometry.location.lng;
+
+              resolve({ formattedAddressLat, formattedAddressLong });
+            })
+            .catch(err => {
+              console.warn(err);
+            });
         }
-        return method;
-      }
+      });
+      return promise;
+    }
 
-      var formattedAddressLat;
-      var formattedAddressLong;
-      // GETS THE ADDRESS FROM DATABASE
-      function getCoordinates() {
+    var map;
+    function createGoogleMapsPosition(lat, long) {
+      return new google.maps.LatLng(lat, long);
+    }
 
-        const promise = new Promise((resolve, reject) => {
+    function initMap() {
+      // The map, centered on LHL, it is a callback in the src code
 
-            // THE Client address that is inputted in the address field
-            const newAddress = localStorage.getItem("address");
+      const coordinatesPromise = getCoordinates().then(
+        ({ formattedAddressLat, formattedAddressLong }) => {
+          const center = createGoogleMapsPosition(
+            43.6444883,
+            -79.40119279999999
+          );
 
-            //finding the geocode aka longitude and latitude so i can insert into google maps to find distance and route
-            geocode();
-            function geocode() {
-              axios
-                .get("https://maps.googleapis.com/maps/api/geocode/json?", {
-                  params: {
-                    address: newAddress,
-                    key: googleApiKey
-                  }
-                })
+          const options = { zoom: 15, scaleControl: true, center: center };
+          map = new google.maps.Map(document.getElementById("map"), options);
+          // Locations of restaurant/ lhl
+          const lightHouse = createGoogleMapsPosition(
+            43.6444883,
+            -79.40119279999999
+          );
 
-                //Gets the latitude and longitude based on the New Address
-                .then(function(response) {
-                  //Formatted address
-                  //Latitude
-                  formattedAddressLat =
-                    response.data.results[0].geometry.location.lat;
-                  //Longitude
-                  formattedAddressLong =
-                    response.data.results[0].geometry.location.lng;
+          //what the user put in
+          const clientAddress = createGoogleMapsPosition(
+            formattedAddressLat,
+            formattedAddressLong
+          );
 
-                  resolve({ formattedAddressLat, formattedAddressLong });
-                })
-                .catch(err => {
-                  console.warn(err);
-                });
-            }
+          // The markers for The LHL and The Client Address
+          var mk1 = new google.maps.Marker({
+            position: lightHouse,
+            map: map
           });
-        return promise;
-      }
+          var mk2 = new google.maps.Marker({
+            position: clientAddress,
+            map: map
+          });
 
-      var map;
-      function createGoogleMapsPosition(lat, long) {
-        return new google.maps.LatLng(lat, long);
-      }
+          let directionsService = new google.maps.DirectionsService(); // This object communicates with Google Maps API Directions Service which receives direction requests and returns an efficient path- travel time is primary factor which is optimized, but other factors like distance, number of turns, etc. taken in account
+          let directionsRenderer = new google.maps.DirectionsRenderer(); // This renders the results
+          directionsRenderer.setMap(map); // Existing map object displays directions
 
-      function initMap() {
-        // The map, centered on LHL, it is a callback in the src code
+          // Create route from existing points used for markers based on the method/button selected
+          const method = getTransportationMethod();
+          document.getElementById("transportationMethod").innerText = method;
+          const route = {
+            origin: lightHouse,
+            destination: clientAddress,
+            travelMode: method
+          };
 
-        const coordinatesPromise = getCoordinates().then(
-          ({ formattedAddressLat, formattedAddressLong }) => {
-            const center = createGoogleMapsPosition(
-              43.6444883,
-              -79.40119279999999
-            );
-
-            const options = { zoom: 15, scaleControl: true, center: center };
-            map = new google.maps.Map(document.getElementById("map"), options);
-            // Locations of restaurant/ lhl
-            const lightHouse = createGoogleMapsPosition(
-              43.6444883,
-              -79.40119279999999
-            );
-
-            //what the user put in
-            const clientAddress = createGoogleMapsPosition(
-              formattedAddressLat,
-              formattedAddressLong
-            );
-
-            // The markers for The LHL and The Client Address
-            var mk1 = new google.maps.Marker({
-              position: lightHouse,
-              map: map
-            });
-            var mk2 = new google.maps.Marker({
-              position: clientAddress,
-              map: map
-            });
-
-            let directionsService = new google.maps.DirectionsService(); // This object communicates with Google Maps API Directions Service which receives direction requests and returns an efficient path- travel time is primary factor which is optimized, but other factors like distance, number of turns, etc. taken in account
-            let directionsRenderer = new google.maps.DirectionsRenderer(); // This renders the results
-            directionsRenderer.setMap(map); // Existing map object displays directions
-
-            // Create route from existing points used for markers based on the method/button selected
-            const method = getTransportationMethod();
-            document.getElementById("transportationMethod").innerText = method;
-            const route = {
-              origin: lightHouse,
-              destination: clientAddress,
-              travelMode: method
-            };
-
-            // To use directions in the Maps JavaScript API, create an object of type DirectionsService and call DirectionsService.route() to initiate a request to the Directions service, passing it a DirectionsRequest object literal containing the input terms and a callback method to execute upon receipt of the response.
-            directionsService.route(route, function(response, status) {
-              // anonymous function to capture directions
-              if (status !== "OK") {
-                console.log("failed");
-                window.alert("Directions request failed due to " + status);
+          // To use directions in the Maps JavaScript API, create an object of type DirectionsService and call DirectionsService.route() to initiate a request to the Directions service, passing it a DirectionsRequest object literal containing the input terms and a callback method to execute upon receipt of the response.
+          directionsService.route(route, function (response, status) {
+            // anonymous function to capture directions
+            if (status !== "OK") {
+              console.log("failed");
+              window.alert("Directions request failed due to " + status);
+              return;
+            } else {
+              directionsRenderer.setDirections(response); // Add route to the map
+              var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+              if (!directionsData) {
+                window.alert("Directions request failed");
                 return;
               } else {
-                directionsRenderer.setDirections(response); // Add route to the map
-                var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-                if (!directionsData) {
-                  window.alert("Directions request failed");
-                  return;
-                } else {
-                  document.getElementById("msg").innerHTML =
-                    " Distance is " +
-                    directionsData.distance.text +
-                    " (" +
-                    directionsData.duration.text +
-                    ").";
-                }
+                document.getElementById("msg").innerHTML =
+                  " Distance is " +
+                  directionsData.distance.text +
+                  " (" +
+                  directionsData.duration.text +
+                  ").";
               }
-            });
-          }
-        );
-      }
-    </script>
-    <script>
-      const script = document.createElement("script");
-      script.id = "mapAPI";
-      script.defer = true;
-      script.async = true;
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
-      document.body.appendChild(script);
-    </script>
-  </body>
+            }
+          });
+        }
+      );
+    }
+  </script>
+  <script>
+    const script = document.createElement("script");
+    script.id = "mapAPI";
+    script.defer = true;
+    script.async = true;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
+    document.body.appendChild(script);
+  </script>
+</body>
+
 </html>
