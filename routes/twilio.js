@@ -22,22 +22,22 @@ const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 module.exports = db => {
 
 
-   //Submit button on "/payment" creates POST request to "/payment"
-   router.post("/", (req, res) => {
+//Submit button on "/payment" creates POST request to "/payment"
+router.post("/", (req, res) => {
 
-    console.log('BODY FROM TWILIO ROUTE: ', req.body.address)
-      client.messages.create({
-        to: CUSTOMER_PHONE_NUMBER,
-        from: TWILIO_PHONE_NUMBER,
-        body: `New order: ${req.body.address}.\nPlease respond with ETA as numerical value in MINUTES.`
-      })
-      .then(function(message) {
-       // console.log('this is the then message: ', message);
-        res.redirect('/confirmed');
-      })
-      .catch(error => res.status(500).send(error));
-  res.redirect("/confirmation");
-  });
+  console.log('BODY FROM TWILIO ROUTE: ', req.body.address)
+    client.messages.create({
+      to: RESTAURANT_PHONE_NUMBER,
+      from: TWILIO_PHONE_NUMBER,
+      body: `New order: ${req.body.address}.\nPlease respond with ETA as numerical value in MINUTES.`
+    })
+    .then(function(message) {
+     // console.log('this is the then message: ', message);
+      res.redirect('/confirmed');
+    })
+    .catch(error => res.status(500).send(error));
+    res.redirect("/confirmation");
+});
 
 
 //Helper Function to send text reminding customer to leave CAN BE TEXT OR CALL
