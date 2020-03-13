@@ -5,6 +5,7 @@ let order = [];
 let preTax = 0;
 let tax = 0;
 let grandTotal = 0;
+
 // document ready
 $(() => {
   const createOrderItem = function(item) {
@@ -17,6 +18,7 @@ $(() => {
         <br>
       </span>`;
   };
+
   // template for menu items
   const createMenuItem = function(item) {
     return `
@@ -30,6 +32,7 @@ $(() => {
       <h4>${item.description}</h4>
     </article>`;
   };
+
   // calculator math
   function preTax1()  {
     let preTax = 0;
@@ -59,6 +62,7 @@ $(() => {
     tax = 0;
     grandTotal = 0;
   }
+
   // when a menu item is rendered, function is added to add to cart button
   const addAddCartHandler = (item) => {
     resetPrices();

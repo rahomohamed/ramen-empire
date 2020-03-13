@@ -25,6 +25,8 @@ $(document).ready(function() {
     setTransportationMethod("BICYCLING");
     reloadPage();
   });
+
+  // generate random string for reference number
   function generateRandomString() {
 
     let result = "";
