@@ -5,7 +5,6 @@ $(document).ready(function() {
   function reloadPage() {
     location.reload();
   }
-  console.log(localStorage.getItem("transportationMethod"));
 
   $("#walking").click(event => {
     event.preventDefault();
@@ -28,7 +27,6 @@ $(document).ready(function() {
 
   // generate random string for reference number
   function generateRandomString() {
-
     let result = "";
     const characters = "0123456789";
     const charactersLength = characters.length;
@@ -48,5 +46,4 @@ $(document).ready(function() {
   }
 
   confirmationPage();
-
 });
